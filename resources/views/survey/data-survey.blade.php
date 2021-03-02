@@ -69,5 +69,6 @@
         </tr>
     </table>
 </div>
+    {!! $survey->links() !!}
 
 @endsection

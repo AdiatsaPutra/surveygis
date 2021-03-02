@@ -99,14 +99,14 @@
                         <div class="mb-1">
                             <label class="form-label">Foto Lokasi</label>
                             <input type="file" class="form-control" id="foto" onchange="preview()" name="foto1">
-                            <img id="frame" src="" width="100px" height="100px"/>
+                            <img id="frame" src="https://lh3.googleusercontent.com/proxy/fYI879ZJ09mWbx2no1xkMkGAD300RMAt-1SSKK4_Fi2sexTAnC3428iqXP56nfdY3XpGvzqUNnx2tJ61wRBKjtxaVmUGen8BpHFyn8xdTBw1QHR0_7d-dNiYJ6iOhg" width="300px" height="300px"/>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-1">
                              <label class="form-label">Foto Lokasi 2</label>
                             <input type="file" class="form-control" id="foto" onchange="preview2()" name="foto2">
-                            <img id="frame2" src="" width="100px" height="100px"/>
+                            <img id="frame2" src="https://lh3.googleusercontent.com/proxy/fYI879ZJ09mWbx2no1xkMkGAD300RMAt-1SSKK4_Fi2sexTAnC3428iqXP56nfdY3XpGvzqUNnx2tJ61wRBKjtxaVmUGen8BpHFyn8xdTBw1QHR0_7d-dNiYJ6iOhg" width="300px" height="300px"/>
                         </div>
                     </div>
                     <div class="col-sm-12">
