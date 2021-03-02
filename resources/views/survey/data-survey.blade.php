@@ -3,6 +3,14 @@
 @section('content')
 
 <div class="container-fluid mt-5 mb-5" style="overflow-x:auto;">
+    <div class="col-sm-4">
+        <div class="mb-1">
+            <input type="text" class="form-control" placeholder="Cari Data" name="caridata"> 
+            <div class="col-sm-3">
+                <button id="btnsearch" class="btn btn-primary btn-block mt-3" type="submit">Search</button>
+            </div>
+        </div>
+    </div>
     <table>
         <tr>
             <th style="min-width: 180px;">No.</th>
