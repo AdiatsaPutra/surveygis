@@ -98,13 +98,15 @@
                     <div class="col-sm-12">
                         <div class="mb-1">
                             <label class="form-label">Foto Lokasi</label>
-                            <input type="file" class="form-control" id="foto" name="foto1">
+                            <input type="file" class="form-control" id="foto" onchange="preview()" name="foto1">
+                            <img id="frame" src="" width="100px" height="100px"/>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-1">
-                            <label class="form-label">Foto Lokasi 2</label>
-                            <input type="file" class="form-control" id="foto" name="foto2">
+                             <label class="form-label">Foto Lokasi 2</label>
+                            <input type="file" class="form-control" id="foto" onchange="preview2()" name="foto2">
+                            <img id="frame2" src="" width="100px" height="100px"/>
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -256,16 +258,16 @@
 
     // Call Add Markers
     addMarkers();
-
-
     });
 
+    function preview() {
+        frame.src=URL.createObjectURL(event.target.files[0]);
+    }
 
+    function preview2() {
+        frame2.src=URL.createObjectURL(event.target.files[0]);
+    }
     
-
-    
-    
-
     date = new Date();
     hari = date.getDay();
     tanggal = date.getDate();
