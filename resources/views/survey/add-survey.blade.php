@@ -126,25 +126,38 @@
     </div>
 </div>
 
-
-@push('scripts')
-<script>
-    
-
-    console.log()
-    // Default Lokasi Map
-    const defaultLocation = ['110.36774955397762', '-7.824041452653281'];
-
-    // Initialize Mapbox View
+{{-- 
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpYXRzYSIsImEiOiJja2w1eWhlOXMxcHdxMnBvZXVkcmhnaXF6In0.kZ56zJwTnSp0r5VH3cIKEg';
     var map = new mapboxgl.Map({
         container: 'map',
         center: defaultLocation,
         zoom: 15,
 
-    });
+    }); --}}
 
-    // Set Map Style
+@push('scripts')
+<script>
+    
+    
+
+    // Initialize Mapbox View
+    navigator.geolocation.getCurrentPosition( function(position) {
+
+        var lng = position.coords.longitude;
+        var lat = position.coords.latitude;                    
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpYXRzYSIsImEiOiJja2w1eWhlOXMxcHdxMnBvZXVkcmhnaXF6In0.kZ56zJwTnSp0r5VH3cIKEg';
+
+        // Default Lokasi Map
+    const defaultLocation = [lng, lat];
+
+        var map = new mapboxgl.Map({
+            container: 'map',          
+            center: [ lng, lat ], // [ lng, lat ]
+            zoom: 12
+        });
+
+        // Set Map Style
     map.setStyle('mapbox://styles/mapbox/satellite-streets-v11');
 
     // Add Map Controller
@@ -240,7 +253,7 @@
 
             // Add to the map
             new mapboxgl.Marker(el)
-                .setLngLat(geometry.coordinates)
+                .setLngLat(defaultLocation)
                 .setPopup(popup)
                 .addTo(map);
         });
@@ -248,6 +261,15 @@
 
     // Call Add Markers
     addMarkers();
+
+
+    });
+
+
+    
+
+    
+    
 
     date = new Date();
     hari = date.getDay();
