@@ -24,4 +24,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/data-survey', [App\Http\Controllers\HomeController::class, 'data']);
 Route::post('/add-data', [App\Http\Controllers\HomeController::class, 'store']);
-Route::delete('/delete', [App\Http\Controllers\HomeController::class, 'destroy']);
+Route::delete('/delete/{id}', [App\Http\Controllers\HomeController::class, 'destroy']);

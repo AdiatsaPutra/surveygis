@@ -7,23 +7,22 @@
         <tr>
             <th style="min-width: 180px;">No.</th>
             <th style="min-width: 180px;">Lattitude</th>
-            <th style="min-width: 180px;">Last Name</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
-            <th style="min-width: 180px;">Points</th>
+            <th style="min-width: 180px;">Longtitude</th>
+            <th style="min-width: 180px;">Nama Lokasi</th>
+            <th style="min-width: 180px;">Kategori</th>
+            <th style="min-width: 180px;">RT</th>
+            <th style="min-width: 180px;">RW</th>
+            <th style="min-width: 180px;">Kelurahan</th>
+            <th style="min-width: 180px;">Kecamatan</th>
+            <th style="min-width: 180px;">PIC 1</th>
+            <th style="min-width: 180px;">PIC 2</th>
+            <th style="min-width: 180px;">Nomor Telepon PIC 1</th>
+            <th style="min-width: 180px;">Nomor Telepon PIC 2</th>
+            <th style="min-width: 180px;">Surveyor</th>
+            <th style="min-width: 180px;">Tanggal Survey</th>
+            <th style="min-width: 180px;">Gambar 1</th>
+            <th style="min-width: 180px;">Gambar 2</th>
+            <th style="min-width: 180px;">Actions</th>
         </tr>
         @forelse ($survey as $data)
         <tr>
@@ -48,11 +47,11 @@
             <td>{{ $data->tanggal }}</td>
             <td><img src="{{ url($imgpath) }}" style="width: 180px;" alt=""></td>
             <td><img src="{{ url($imgpath2) }}" style="width: 180px;" alt=""></td>
-            <td><button class="btn btn-warning">Edit</button></td>
+            <td><button class="btn btn-warning">Edit</button>
             <form method="post" action="/delete/{{ $data->id }}">
                 @method('delete')
                 @csrf
-                <td><button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus post ini ?')"
+                <button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus post ini ?')"
                         type="submit">Delete</button></td>
             </form>
             @empty
