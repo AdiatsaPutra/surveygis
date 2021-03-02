@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\AddSurvey;
+use App\Http\Livewire\DataSurvey;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/data-survey', [App\Http\Controllers\HomeController::class, 'data']);
+Route::post('/add', [App\Http\Controllers\HomeController::class, 'store']);

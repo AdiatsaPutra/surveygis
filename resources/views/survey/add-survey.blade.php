@@ -7,20 +7,20 @@
     </div>
     <div class="row">
         <div class="col-md-4 mb-5">
-            <form method="post" action="/add-survey" enctype="multipart/form-data">
+            <form method="post" action="/add" enctype="multipart/form-data">
             @csrf
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label for="lattitude" class="form-label">Lattitude</label>
-                            <input wire:model="lat" type="text" class="form-control" placeholder="Masukkan Lattitude" name="lat"
+                            <input type="text" class="form-control" placeholder="Masukkan Lattitude" name="lat"
                                 id="lat">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label class="form-label">Longtitude</label>
-                            <input wire:model="long" type="text" class="form-control" placeholder="Masukkan Longtitude" name="lng"
+                            <input type="text" class="form-control" placeholder="Masukkan Longtitude" name="lng"
                                 id="lng">
                         </div>
                     </div>
@@ -129,6 +129,9 @@
 
 @push('scripts')
 <script>
+    
+
+    console.log()
     // Default Lokasi Map
     const defaultLocation = ['110.36774955397762', '-7.824041452653281'];
 
