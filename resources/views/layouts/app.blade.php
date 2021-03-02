@@ -28,7 +28,7 @@
                     <img class="logo" src="{{ asset('img/logo.png') }}">
                     
                     <ul class="navbar-nav ml-auto">
-                        <a class="text-white" href="{{('/data-survey')}}">Data Survey</a>
+                        <a class="nav" href="{{('/data-survey')}}">Data Survey</a>
                         @guest
                         @if (Route::has('login'))
                         <li class="nav-item">

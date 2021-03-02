@@ -111,5 +111,11 @@ footer{
         background-color:black;
         color: white;
     }
+
+    .nav{
+        color: white;
+        margin-right: 30px;
+        margin-top: 6px;
+    }
     
 }
