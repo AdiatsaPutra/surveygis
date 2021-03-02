@@ -43,7 +43,6 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
-        $date = Carbon::now()->toDateTimeString();
 
         $request->validate([
             'lng' => 'required',
@@ -60,24 +59,24 @@ class HomeController extends Controller
             'telp2' => 'required',
             'namasurveyor' => 'required',
             'tgl' => 'required',
-            // 'foto1' => 'required|file',
-            // 'foto2' => 'required|file',
+            'foto1' => 'required|file',
+            'foto2' => 'required|file',
         ]);
 
-        // $extension = $request->file('foto1')->extension();
-        // $extension2 = $request->file('foto2')->extension();
-        // $random = Str::random(10);
-        // $random2 = Str::random(10);
-        // $imgName = $random . '.' . $extension;
-        // $imgName2 = $random2 . '.' . $extension2;
+        $extension = $request->file('foto1')->extension();
+        $extension2 = $request->file('foto2')->extension();
+        $random = Str::random(10);
+        $random2 = Str::random(10);
+        $imgName = $random . '.' . $extension;
+        $imgName2 = $random2 . '.' . $extension2;
 
-        // Storage::putFileAs('public/images', $request->file('foto1'), $imgName);
-        // Storage::putFileAs('public/images', $request->file('foto2'), $imgName2);
+        Storage::putFileAs('public/images', $request->file('foto1'), $imgName);
+        Storage::putFileAs('public/images', $request->file('foto2'), $imgName2);
 
         Survey::create(
             [
-                'lng' => $request->lng,
-                'lat' => $request->lat,
+                'lattitude' => $request->lat,
+                'longtitude' => $request->lng,
                 'namalokasi' => $request->namalokasi,
                 'kategori' => $request->kategori,
                 'rt' => $request->rt,
@@ -90,11 +89,11 @@ class HomeController extends Controller
                 'telp2' => $request->telp2,
                 'namasurveyor' => $request->namasurveyor,
                 'tanggal' => $request->tgl,
-                // 'foto1' => $imgName,
-                // 'foto2' => $imgName2,
+                'fotolokasi1' => $imgName,
+                'fotolokasi2' => $imgName2,
             ]
         );
 
-        return view('survey.data-survey');
+        return redirect('/data-survey');
     }
 }

@@ -95,7 +95,7 @@
                             <input type="text" class="form-control" id="tgl" name="tgl">
                         </div>
                     </div>
-                    {{-- <div class="col-sm-12">
+                    <div class="col-sm-12">
                         <div class="mb-1">
                             <label class="form-label">Foto Lokasi</label>
                             <input type="file" class="form-control" id="foto" name="foto1">
@@ -106,7 +106,7 @@
                             <label class="form-label">Foto Lokasi 2</label>
                             <input type="file" class="form-control" id="foto" name="foto2">
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="col-sm-12">
                         <button class="btn btn-primary btn-block mt-3" type="submit">Submit</button>
                     </div>
