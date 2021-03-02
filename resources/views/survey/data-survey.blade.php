@@ -49,7 +49,7 @@
             <td><img src="{{ url($imgpath) }}" style="width: 180px;" alt=""></td>
             <td><img src="{{ url($imgpath2) }}" style="width: 180px;" alt=""></td>
             <td><button class="btn btn-warning">Edit</button></td>
-            <form method="post" action="/delete/{{ data->id }}">
+            <form method="post" action="/delete/{{ $data->id }}">
                 @method('delete')
                 @csrf
                 <td><button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus post ini ?')"
