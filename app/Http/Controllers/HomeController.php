@@ -96,4 +96,11 @@ class HomeController extends Controller
 
         return redirect('/data-survey');
     }
+
+    public function destroy($id)
+    {
+        $survey = Survey::findOrFail($id);
+        $survey->delete();
+        return redirect('/data-survey');
+    }
 }

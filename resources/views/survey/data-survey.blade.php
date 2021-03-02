@@ -27,10 +27,10 @@
         </tr>
         @forelse ($survey as $data)
         <tr>
-        @php
-        $imgpath = Storage::url('images/'.$data->fotolokasi1);
-        $imgpath2 = Storage::url('images/'.$data->fotolokasi2);
-        @endphp
+            @php
+            $imgpath = Storage::url('images/'.$data->fotolokasi1);
+            $imgpath2 = Storage::url('images/'.$data->fotolokasi2);
+            @endphp
             <td>{{ $loop->iteration }}</td>
             <td>{{ $data->lattitude }}</td>
             <td>{{ $data->longtitude }}</td>
@@ -49,7 +49,12 @@
             <td><img src="{{ url($imgpath) }}" style="width: 180px;" alt=""></td>
             <td><img src="{{ url($imgpath2) }}" style="width: 180px;" alt=""></td>
             <td><button class="btn btn-warning">Edit</button></td>
-            <td><button class="btn btn-danger">Delete</button></td>
+            <form method="post" action="/delete/{{ data->id }}">
+                @method('delete')
+                @csrf
+                <td><button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus post ini ?')"
+                        type="submit">Delete</button></td>
+            </form>
             @empty
             <p>Data Sedang Kosong</p>
             @endforelse
