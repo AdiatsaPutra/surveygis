@@ -23,4 +23,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/data-survey', [App\Http\Controllers\HomeController::class, 'data']);
-Route::post('/add', [App\Http\Controllers\HomeController::class, 'store']);
+Route::post('/add-data', [App\Http\Controllers\HomeController::class, 'store']);

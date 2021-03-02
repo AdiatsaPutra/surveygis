@@ -6,6 +6,7 @@ use App\Models\Survey;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -36,16 +37,18 @@ class HomeController extends Controller
      */
     public function data()
     {
-        $datasurvey = Survey::all();
-        return view('survey.data-survey', compact('datasurvey'));
+        $survey = Survey::all();
+        return view('survey.data-survey', compact('survey'));
     }
 
     public function store(Request $request)
     {
+        $date = Carbon::now()->toDateTimeString();
+
         $request->validate([
             'lng' => 'required',
             'lat' => 'required',
-            'nama' => 'required',
+            'namalokasi' => 'required',
             'kategori' => 'required',
             'rt' => 'required',
             'rw' => 'required',
@@ -57,25 +60,25 @@ class HomeController extends Controller
             'telp2' => 'required',
             'namasurveyor' => 'required',
             'tgl' => 'required',
-            'foto1' => 'required|file',
-            'foto2' => 'required|file',
+            // 'foto1' => 'required|file',
+            // 'foto2' => 'required|file',
         ]);
 
-        $extension = $request->file('foto1')->extension();
-        $extension2 = $request->file('foto2')->extension();
-        $random = Str::random(10);
-        $random2 = Str::random(10);
-        $imgName = $random . '.' . $extension;
-        $imgName2 = $random2 . '.' . $extension2;
+        // $extension = $request->file('foto1')->extension();
+        // $extension2 = $request->file('foto2')->extension();
+        // $random = Str::random(10);
+        // $random2 = Str::random(10);
+        // $imgName = $random . '.' . $extension;
+        // $imgName2 = $random2 . '.' . $extension2;
 
-        Storage::putFileAs('public/images', $request->file('foto1'), $imgName);
-        Storage::putFileAs('public/images', $request->file('foto2'), $imgName2);
+        // Storage::putFileAs('public/images', $request->file('foto1'), $imgName);
+        // Storage::putFileAs('public/images', $request->file('foto2'), $imgName2);
 
         Survey::create(
             [
                 'lng' => $request->lng,
                 'lat' => $request->lat,
-                'nama' => $request->nama,
+                'namalokasi' => $request->namalokasi,
                 'kategori' => $request->kategori,
                 'rt' => $request->rt,
                 'rw' => $request->rw,
@@ -86,12 +89,12 @@ class HomeController extends Controller
                 'telp1' => $request->telp1,
                 'telp2' => $request->telp2,
                 'namasurveyor' => $request->namasurveyor,
-                'tgl' => $request->tgl,
-                'foto1' => $imgName,
-                'foto2' => $imgName2,
+                'tanggal' => $request->tgl,
+                // 'foto1' => $imgName,
+                // 'foto2' => $imgName2,
             ]
         );
 
-        return redirect('livewire.data-survey');
+        return view('survey.data-survey');
     }
 }

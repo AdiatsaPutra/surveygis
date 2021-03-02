@@ -7,11 +7,11 @@
     </div>
     <div class="row">
         <div class="col-md-4 mb-5">
-            <form method="post" action="/add" enctype="multipart/form-data">
+            <form method="post" action="/add-data" enctype="multipart/form-data">
             @csrf
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="mb-1">
+                         <div class="mb-1">
                             <label for="lattitude" class="form-label">Lattitude</label>
                             <input type="text" class="form-control" placeholder="Masukkan Lattitude" name="lat"
                                 id="lat">
@@ -27,7 +27,7 @@
                     <div class="col-sm-12">
                         <div class="mb-1">
                             <label class="form-label">Nama Lokasi</label>
-                            <input type="text" class="form-control" placeholder=" Masukan Nama lokasi" name="nama">
+                            <input type="text" class="form-control" placeholder=" Masukan Nama lokasi" name="namalokasi">
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -85,24 +85,17 @@
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        @guest
-                        @if (Route::has('login'))
-                        @endif
-                        @if (Route::has('register'))
-                        @endif
-                        @else
                         <div class="mb-1">
                             <input type="hidden" class="form-control" value="{{ Auth::user()->name }}" name="namasurveyor">
                         </div>
-                        @endguest
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-1">
                             <label class="form-label">Tanggal Disurvey</label>
-                            <input type="text" class="form-control" id="tgl" nama="tgl">
+                            <input type="text" class="form-control" id="tgl" name="tgl">
                         </div>
                     </div>
-                    <div class="col-sm-12">
+                    {{-- <div class="col-sm-12">
                         <div class="mb-1">
                             <label class="form-label">Foto Lokasi</label>
                             <input type="file" class="form-control" id="foto" name="foto1">
@@ -113,9 +106,9 @@
                             <label class="form-label">Foto Lokasi 2</label>
                             <input type="file" class="form-control" id="foto" name="foto2">
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-sm-12">
-                        <button class="btn btn-primary btn-block mt-3" type="button">Submit</button>
+                        <button class="btn btn-primary btn-block mt-3" type="submit">Submit</button>
                     </div>
                 </div>
             </form>
@@ -137,23 +130,20 @@
 
 @push('scripts')
 <script>
-    
-    
 
     // Initialize Mapbox View
     navigator.geolocation.getCurrentPosition( function(position) {
 
+    // Default Lokasi Map
         var lng = position.coords.longitude;
         var lat = position.coords.latitude;                    
+        const defaultLocation = [lng, lat];
 
         mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpYXRzYSIsImEiOiJja2w1eWhlOXMxcHdxMnBvZXVkcmhnaXF6In0.kZ56zJwTnSp0r5VH3cIKEg';
 
-        // Default Lokasi Map
-    const defaultLocation = [lng, lat];
-
         var map = new mapboxgl.Map({
             container: 'map',          
-            center: [ lng, lat ], // [ lng, lat ]
+            center: [ lng, lat ],
             zoom: 12
         });
 
@@ -161,7 +151,12 @@
     map.setStyle('mapbox://styles/mapbox/satellite-streets-v11');
 
     // Add Map Controller
-    map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.GeolocateControl({
+  positionOptions: {
+    enableHighAccuracy: true
+  },
+    trackUserLocation: true
+}));
 
     // Get Latittude Longitude
     map.on('click', function (e) {

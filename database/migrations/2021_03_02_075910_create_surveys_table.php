@@ -15,22 +15,22 @@ class CreateSurveysTable extends Migration
     {
         Schema::create('surveys', function (Blueprint $table) {
             $table->id();
-            $table->string('lattitude');
-            $table->string('longtitude');
+            $table->string('lattitude')->nullable();
+            $table->string('longtitude')->nullable();
             $table->string('namalokasi');
-            $table->string('kategori');
-            $table->string('rt');
-            $table->string('rw');
-            $table->string('kelurahan');
-            $table->string('kecamatan');
-            $table->string('pic1');
-            $table->string('pic2');
-            $table->string('telp1');
-            $table->string('telp2');
-            $table->string('namasurveyor');
-            $table->string('tanggal');
-            $table->string('fotolokasi1');
-            $table->string('fotolokasi2');
+            $table->string('kategori')->nullable();
+            $table->string('rt')->nullable();
+            $table->string('rw')->nullable();
+            $table->string('kelurahan')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('pic1')->nullable();
+            $table->string('pic2')->nullable();
+            $table->string('telp1')->nullable();
+            $table->string('telp2')->nullable();
+            $table->string('namasurveyor')->nullable();
+            $table->string('tanggal')->nullable();
+            $table->string('fotolokasi1')->nullable();
+            $table->string('fotolokasi2')->nullable();
             $table->timestamps();
         });
     }

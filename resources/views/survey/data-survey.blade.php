@@ -25,7 +25,7 @@
             <th style="min-width: 180px;">Points</th>
             <th style="min-width: 180px;">Points</th>
         </tr>
-        @foreach ($datasurvey as $data)
+        @foreach ($survey as $data)
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $data->lattitude }}</td>
