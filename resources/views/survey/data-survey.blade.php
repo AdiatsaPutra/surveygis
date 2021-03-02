@@ -46,8 +46,8 @@
             <td><img src="{{ $data->fotolokasi2 }}" style="width: 180px;" alt=""></td>
             <td><button class="btn btn-warning">Edit</button></td>
             <td><button class="btn btn-danger">Delete</button></td>
-            @endforeach
         </tr>
+            @endforeach
     </table>
 </div>
 
