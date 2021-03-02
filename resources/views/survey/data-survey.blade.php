@@ -3,12 +3,12 @@
 @section('content')
 
 <div class="container-fluid mt-5 mb-5" style="overflow-x:auto;">
-    <div class="col-sm-4">
-        <div class="mb-1">
-            <input type="text" class="form-control" placeholder="Cari Data" name="caridata"> 
-            <div class="col-sm-3">
-                <button id="btnsearch" class="btn btn-primary btn-block mt-3" type="submit">Search</button>
-            </div>
+    <div class="row mb-5">
+        <div class="col-6">
+            <input type="text" class="form-control" placeholder="Cari Data" name="caridata">
+        </div>
+        <div class="col-6">
+            <button id="btnsearch" class="btn btn-primary" type="submit">Search</button>
         </div>
     </div>
     <table>
@@ -56,11 +56,12 @@
             <td><img src="{{ url($imgpath) }}" style="width: 180px;" alt=""></td>
             <td><img src="{{ url($imgpath2) }}" style="width: 180px;" alt=""></td>
             <td><button class="btn btn-warning">Edit</button>
-            <form method="post" action="/delete/{{ $data->id }}">
-                @method('delete')
-                @csrf
-                <button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus post ini ?')"
-                        type="submit">Delete</button></td>
+                <form method="post" action="/delete/{{ $data->id }}">
+                    @method('delete')
+                    @csrf
+                    <button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus post ini ?')"
+                        type="submit">Delete</button>
+            </td>
             </form>
             @empty
             <p>Data Sedang Kosong</p>
