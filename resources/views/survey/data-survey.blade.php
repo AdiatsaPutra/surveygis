@@ -15,9 +15,9 @@
             <th style="min-width: 180px;">Kelurahan</th>
             <th style="min-width: 180px;">Kecamatan</th>
             <th style="min-width: 180px;">PIC 1</th>
+            <th style="min-width: 180px;">No Telp PIC 1</th>
             <th style="min-width: 180px;">PIC 2</th>
-            <th style="min-width: 180px;">Nomor Telepon PIC 1</th>
-            <th style="min-width: 180px;">Nomor Telepon PIC 2</th>
+            <th style="min-width: 180px;">No Telp PIC 2</th>
             <th style="min-width: 180px;">Surveyor</th>
             <th style="min-width: 180px;">Tanggal Survey</th>
             <th style="min-width: 180px;">Gambar 1</th>
@@ -40,8 +40,8 @@
             <td>{{ $data->kelurahan }}</td>
             <td>{{ $data->kecamatan }}</td>
             <td>{{ $data->pic1 }}</td>
-            <td>{{ $data->pic2 }}</td>
             <td>{{ $data->telp1 }}</td>
+            <td>{{ $data->pic2 }}</td>
             <td>{{ $data->telp2 }}</td>
             <td>{{ $data->namasurveyor }}</td>
             <td>{{ $data->tanggal }}</td>
