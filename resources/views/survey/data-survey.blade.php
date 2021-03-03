@@ -14,7 +14,7 @@
                     <button id="btnsearch" class="btn btn-primary" type="submit">Search</button>
                 </div>
                 <div class="col-2">
-                    <a id="btntambah" href="{{ route('home') }}" class="btn btn-primary" type="submit">Tambah Data</a>
+                    <a id="btntambah" href="{{ route('home') }}" class="btn btn-danger" type="submit">Tambah Data</a>
                 </div>
             </div>
         </div>      
