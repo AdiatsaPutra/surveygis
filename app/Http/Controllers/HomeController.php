@@ -110,4 +110,44 @@ class HomeController extends Controller
         $survey->delete();
         return redirect('/data-survey');
     }
+
+    public function edit($id)
+    {
+        $survey = Student::findOrFail($id);
+        return view('survey.data-table', compact('survey'));
+    }
+    
+    public function update(Request $request, $id)
+    {
+        $updateData = $request->validate([
+            'lng' => 'required',
+            'lat' => 'required',
+            'namalokasi' => 'required',
+            'kategori' => 'required',
+            'rt' => 'required',
+            'rw' => 'required',
+            'kelurahan' => 'required',
+            'kecamatan' => 'required',
+            'pic1' => 'required',
+            'telp1' => 'required',
+            'namasurveyor' => 'required',
+            'tgl' => 'required',
+            'foto1' => 'required|file',
+            'foto2' => 'required|file',
+        ]);
+
+        $extension = $request->file('foto1')->extension();
+        $extension2 = $request->file('foto2')->extension();
+        $random = Str::random(10);
+        $random2 = Str::random(10);
+        $imgName = $random . '.' . $extension;
+        $imgName2 = $random2 . '.' . $extension2;
+
+        Storage::putFileAs('public/images', $request->file('foto1'), $imgName);
+        Storage::putFileAs('public/images', $request->file('foto2'), $imgName2);
+
+        Survey::whereId($id)->update($updateData);
+
+        return redirect('/datasurvey');
+    }
 }

@@ -25,3 +25,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/data-survey', [App\Http\Controllers\HomeController::class, 'data']);
 Route::post('/add-data', [App\Http\Controllers\HomeController::class, 'store']);
 Route::delete('/delete/{id}', [App\Http\Controllers\HomeController::class, 'destroy']);
+Route::post('/edit-data', [App\Http\Controllers\HomeController::class, 'update']);
