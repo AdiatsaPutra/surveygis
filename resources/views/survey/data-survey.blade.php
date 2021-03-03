@@ -242,7 +242,7 @@
                         <form method="post" action="/delete/{{ $data->id }}">
                             @method('delete')
                             @csrf
-                            <button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus post ini ?')"
+                            <button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus data ini ?')"
                                 type="submit">Delete</button>
                         </form>
                     </div>
