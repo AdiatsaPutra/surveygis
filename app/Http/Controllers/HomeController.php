@@ -35,9 +35,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function data()
+    public function data(Request $request)
     {
-        $survey = Survey::paginate(5);
+        $survey = Survey::when($request->keyword, function ($query) use ($request) {
+            $query->where('namalokasi', 'like', "%{$request->keyword}%")
+                ->orWhere('kategori', 'like', "%{$request->keyword}%");
+        })->paginate(5);
         return view('survey.data-survey', compact('survey'));
     }
 
@@ -93,6 +96,12 @@ class HomeController extends Controller
         );
 
         return redirect('/data-survey');
+    }
+
+    public function showModal($id)
+    {
+        $survey = Survey::findOrFail($id);
+        return view('survey.data-table', compact('survey'));
     }
 
     public function destroy($id)

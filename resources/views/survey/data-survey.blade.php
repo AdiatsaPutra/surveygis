@@ -4,14 +4,16 @@
 
 <div class="container-fluid mt-5 mb-5" style="overflow-x:auto;">
     @if(!$survey->isEmpty())
-    <div class="row mb-5">
-        <div class="col-6">
-            <input type="text" class="form-control" placeholder="Cari Data" name="caridata">
+    <form action="{{ url()->current() }}">
+        <div class="row mb-5">
+            <div class="col-6">
+                <input type="text" class="form-control" placeholder="Cari Data" name="keyword">
+            </div>
+            <div class="col-6">
+                <button id="btnsearch" class="btn btn-primary" type="submit">Search</button>
+            </div>
         </div>
-        <div class="col-6">
-            <button id="btnsearch" class="btn btn-primary" type="submit">Search</button>
-        </div>
-    </div>
+    </form>
     @else
     <div class="row text-center mb-5">
         <h3 class="font-weight-bold">Belum Ada Data</h3>
@@ -63,8 +65,8 @@
             <td>{{ $data->telp2 }}</td>
             <td>{{ $data->namasurveyor }}</td>
             <td>{{ $data->tanggal }}</td>
-            <td><img src="{{ url($imgpath) }}" style="width: 180px;" alt=""></td>
-            <td><img src="{{ url($imgpath2) }}" style="width: 180px;" alt=""></td>
+            <td><img src="{{ url($imgpath) }}" style="width: 100px;" alt=""></td>
+            <td><img src="{{ url($imgpath2) }}" style="width: 100px;" alt=""></td>
             <td>
                 <div class="row">
                     <div class="col">
