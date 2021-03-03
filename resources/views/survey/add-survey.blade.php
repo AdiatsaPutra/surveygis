@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="map-location container-fluid">
-    <div class="row mb-3">
+    <div class="row mt-5 mb-3">
         <h3 class="font-weight-bold">Masukkan Data Survey Lokasi</h3>
     </div>
     <div class="row">
