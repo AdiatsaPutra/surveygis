@@ -17,7 +17,7 @@
                     <a id="btntambah" href="{{ route('home') }}" class="btn btn-danger" type="submit">Tambah Data</a>
                 </div>
             </div>
-        </div>      
+        </div>
     </form>
     @else
     <div class="row text-center mb-5">
@@ -74,176 +74,21 @@
             <td><img src="{{ url($imgpath2) }}" style="width: 100px;" alt=""></td>
             <td>
                 <div class="row">
-                    <div class="col">
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit">
-                            Edit
-                        </button>
-                        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog modal-lg" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h3 class="font-weight-bold">Edit Data Survey Lokasi</h3>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="post" action="/edit/{{ $data->id }}">
-                                            @method('put')
-                                            @csrf
-                                            <div class="map-location">
-                                                <div class="row">
-                                                    <div class="col-m6 mb-5">
-                                                        <form method="post" action="/add-data"
-                                                            enctype="multipart/form-data">
-                                                            @csrf
-                                                            <div class="row">
-                                                                <div class="col-sm-6">
-                                                                    <div class="mb-1">
-                                                                        <label for="lattitude"
-                                                                            class="form-label">Lattitude</label>
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="Masukkan Lattitude" name="lat"
-                                                                            id="lat">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-6">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">Longtitude</label>
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="Masukkan Longtitude" name="lng"
-                                                                            id="lng">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">Nama Lokasi</label>
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder=" Masukan Nama lokasi"
-                                                                            name="namalokasi">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">Kategori</label>
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder=" Masukan Jenis Lokasi"
-                                                                            name="kategori">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-6">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">RT</label>
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="Masukkan RT" name="rt">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-6">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">RW</label>
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="Masukkan RW" name="rw">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">Kelurahan</label>
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder=" Masukan Kelurahan"
-                                                                            name="kelurahan">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">Kecamatan</label>
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder=" Masukan Kecamatan"
-                                                                            name="kecamatan">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-6">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">PIC 1</label>
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="Masukkan PIC 1" name="pic1">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-6">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">Telepon</label>
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="Masukan Telepon" name="telp1">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-6">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">PIC 2</label>
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="Masukkan PIC 2" name="pic2">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-6">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">Telepon</label>
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="Masukan Telepon" name="telp2">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <div class="mb-1">
-                                                                        <input type="hidden" class="form-control"
-                                                                            value="{{ Auth::user()->name }}"
-                                                                            name="namasurveyor">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">Tanggal
-                                                                            Disurvey</label>
-                                                                        <input type="text" class="form-control" id="tgl"
-                                                                            name="tgl">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">Foto Lokasi</label>
-                                                                        <input type="file" class="form-control"
-                                                                            id="foto" onchange="preview()" name="foto1">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label">Foto Lokasi 2</label>
-                                                                        <input type="file" class="form-control"
-                                                                            id="foto" onchange="preview2()"
-                                                                            name="foto2">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <button class="btn btn-primary btn-block mt-3"
-                                                                        type="submit">Submit</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="col-m6">
-                                                        <div id='map' style='width: 300px; height: 300px;'></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button class="btn btn-warning" type="submit">Edit</button>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div class="col-4">
+                        <form action="/cetak/{{ $data->id }}">
+                            <button class="btn btn-primary">
+                                Cetak
+                            </button>
+                        </form>
                     </div>
-                    <div class="col">
+                    <div class="col-4">
+                        <form action="/edit-data/{{ $data->id }}">
+                            <button type="submit" class="btn btn-warning">
+                                Edit
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-4">
                         <form method="post" action="/delete/{{ $data->id }}">
                             @method('delete')
                             @csrf

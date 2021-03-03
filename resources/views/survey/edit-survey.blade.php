@@ -7,10 +7,7 @@
     </div>
     <div class="row">
         <div class="col-md-4 mb-5">
-            <!-- <form action="/edit-data" method="POST" enctype="multipart/form-data" $student->id>
-            @csrf
-            @method('PUT') -->
-            <form method="post" action="{{ route('survey.update', $survey->id) }}" enctype="multipart/form-data">
+            <form method="post" action="" enctype="multipart/form-data">
             <div class="form-group">
               @csrf
               @method('PATCH')
@@ -19,14 +16,14 @@
                          <div class="mb-1">
                             <label for="lattitude" class="form-label">Lattitude</label>
                             <input type="text" class="form-control" placeholder="Masukkan Lattitude" name="lat"
-                                id="lat" value= "{{ $survey->lat }}">
+                                id="lat" value= "{{ $survey->lattitude }}">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label class="form-label">Longtitude</label>
                             <input type="text" class="form-control" placeholder="Masukkan Longtitude" name="lng"
-                                id="lng" value= "{{ $survey->lng }}">
+                                id="lng" value= "{{ $survey->longtitude }}">
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -100,18 +97,22 @@
                             <input type="text" class="form-control" id="tgl" name="tgl" value= "{{ $survey->tgl }}">
                         </div>
                     </div>
+                    @php
+                    $imgpath = Storage::url('images/'.$survey->fotolokasi1);
+                    $imgpath2 = Storage::url('images/'.$survey->fotolokasi2);
+                    @endphp
                     <div class="col-sm-12">
                         <div class="mb-1">
                             <label class="form-label">Foto Lokasi</label>
                             <input type="file" class="form-control" id="foto" onchange="preview()" name="foto1">
-                            <img id="frame" src="https://lh3.googleusercontent.com/proxy/fYI879ZJ09mWbx2no1xkMkGAD300RMAt-1SSKK4_Fi2sexTAnC3428iqXP56nfdY3XpGvzqUNnx2tJ61wRBKjtxaVmUGen8BpHFyn8xdTBw1QHR0_7d-dNiYJ6iOhg" width="300px" height="300px"/>
+                            <img src="{{ url($imgpath) }}" style="width: 100px;" alt="">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-1">
                              <label class="form-label">Foto Lokasi 2</label>
                             <input type="file" class="form-control" id="foto" onchange="preview2()" name="foto2">
-                            <img id="frame2" src="https://lh3.googleusercontent.com/proxy/fYI879ZJ09mWbx2no1xkMkGAD300RMAt-1SSKK4_Fi2sexTAnC3428iqXP56nfdY3XpGvzqUNnx2tJ61wRBKjtxaVmUGen8BpHFyn8xdTBw1QHR0_7d-dNiYJ6iOhg" width="300px" height="300px"/>
+                            <img src="{{ url($imgpath2) }}" style="width: 100px;" alt="">
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -120,10 +121,10 @@
                 </div>
             </form>
         </div>
+    </div>
         <div class="col-md-8">
             <div id='map' style='width: 100%; height: 80vh;'></div>
         </div>
-    </div>
 </div>
 
 @push('scripts')
@@ -154,8 +155,6 @@
     map.on('click', function (e) {
         const latittude = e.lngLat.lat;
         const longtitude = e.lngLat.lng;
-        document.getElementById('lat').value = latittude;
-        document.getElementById('lng').value = longtitude;
     });
     const geoJson = {
         "type": "FeatureCollection",

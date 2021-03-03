@@ -113,10 +113,16 @@ class HomeController extends Controller
 
     public function edit($id)
     {
-        $survey = Student::findOrFail($id);
-        return view('survey.data-table', compact('survey'));
+        $survey = Survey::findOrFail($id);
+        return view('survey.edit-survey', compact('survey'));
     }
-    
+
+    public function print($id)
+    {
+        $survey = Survey::findOrFail($id);
+        return view('survey.cetak', compact('survey'));
+    }
+
     public function update(Request $request, $id)
     {
         $updateData = $request->validate([

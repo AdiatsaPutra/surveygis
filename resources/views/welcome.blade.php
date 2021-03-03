@@ -51,7 +51,7 @@
         <div class=" text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
           <a class="text-white">Build With Love by UMY Intern Team</a>
           <small><a href='https://www.freepik.com/vectors/technology'>Technology vector created by stories -
-            www.freepik.com</a></small>
+            www.freepik.com</a>-</small>
         </div>
     </footer>
 
