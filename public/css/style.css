@@ -2,6 +2,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.app{
+    background-color: white;
+}
+
 .jumbotron{
     margin-top: -50px !important;
     padding: 80px 0px 0px 0px;
@@ -50,10 +54,6 @@ table {
    background-position-x: center;
    height: 500px;
    margin-bottom: 30px;
-}
-
-.map-location{
-    margin: 50px 0px;
 }
 
 footer{
@@ -105,21 +105,20 @@ footer{
        height: 900px;
     }
 
-    footer{
-        bottom: 0;
-        width: 100%;
-        background-color:black;
-        color: white;
-    }
-
     .nav{
         color: white;
         margin-right: 30px;
         margin-top: 6px;
     }
 
-    #btnsearch{
-        
+    .img-fluid{
+        width: 50%;
     }
     
+    footer{
+        bottom: 0;
+        width: 100%;
+        background-color:black;
+        color: white;
+    }
 }

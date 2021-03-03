@@ -37,7 +37,7 @@ class HomeController extends Controller
      */
     public function data()
     {
-        $survey = Survey::paginate(2);
+        $survey = Survey::paginate(5);
         return view('survey.data-survey', compact('survey'));
     }
 

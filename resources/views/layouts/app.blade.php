@@ -22,7 +22,7 @@
     </head>
 
     <body>
-        <div id="app">
+        <div class="app" id="app">
             <nav class="navbar navbar-expand-lg bg-dark">
                 <div class="container">
                     <img class="logo" src="{{ asset('img/logo.png') }}">
