@@ -155,9 +155,9 @@
 
     // Get Latittude Longitude
     map.on('click', function (e) {
+        
         const latittude = e.lngLat.lat;
         const longtitude = e.lngLat.lng;
-
         document.getElementById('lat').value = latittude;
         document.getElementById('lng').value = longtitude;
 

@@ -5,14 +5,19 @@
 <div class="container-fluid mt-5 mb-5" style="overflow-x:auto;">
     @if(!$survey->isEmpty())
     <form action="{{ url()->current() }}">
-        <div class="row mb-5">
-            <div class="col-6">
-                <input type="text" class="form-control" placeholder="Cari Data" name="keyword">
+        <div class="row mb-3">
+            <div class="btn-group">
+                <div class="col-6">
+                    <input type="text" class="form-control" placeholder="Cari Data" name="keyword">
+                </div>
+                <div class="col-2">
+                    <button id="btnsearch" class="btn btn-primary" type="submit">Search</button>
+                </div>
+                <div class="col-2">
+                    <a id="btntambah" href="{{ route('home') }}" class="btn btn-primary" type="submit">Tambah Data</a>
+                </div>
             </div>
-            <div class="col-6">
-                <button id="btnsearch" class="btn btn-primary" type="submit">Search</button>
-            </div>
-        </div>
+        </div>      
     </form>
     @else
     <div class="row text-center mb-5">

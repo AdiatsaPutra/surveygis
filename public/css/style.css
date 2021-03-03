@@ -121,4 +121,8 @@ footer{
         background-color:black;
         color: white;
     }
+
+    #btntambah{
+        margin-left: -230px;
+    }
 }
