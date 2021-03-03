@@ -23,8 +23,6 @@
         @if(!$survey->isEmpty())
         <tr>
             <th style="min-width: 180px;">No.</th>
-            <th style="min-width: 180px;">Lattitude</th>
-            <th style="min-width: 180px;">Longtitude</th>
             <th style="min-width: 180px;">Nama Lokasi</th>
             <th style="min-width: 180px;">Kategori</th>
             <th style="min-width: 180px;">RT</th>
@@ -37,6 +35,8 @@
             <th style="min-width: 180px;">No Telp PIC 2</th>
             <th style="min-width: 180px;">Surveyor</th>
             <th style="min-width: 180px;">Tanggal Survey</th>
+            <th style="min-width: 180px;">Lattitude</th>
+            <th style="min-width: 180px;">Longtitude</th>
             <th style="min-width: 180px;">Gambar 1</th>
             <th style="min-width: 180px;">Gambar 2</th>
             <th style="min-width: 180px;">Actions</th>
@@ -51,8 +51,6 @@
             $imgpath2 = Storage::url('images/'.$data->fotolokasi2);
             @endphp
             <td>{{ $loop->iteration + $survey->firstItem() - 1 }}</td>
-            <td>{{ $data->lattitude }}</td>
-            <td>{{ $data->longtitude }}</td>
             <td>{{ $data->namalokasi }}</td>
             <td>{{ $data->kategori }}</td>
             <td>{{ $data->rt }}</td>
@@ -65,6 +63,8 @@
             <td>{{ $data->telp2 }}</td>
             <td>{{ $data->namasurveyor }}</td>
             <td>{{ $data->tanggal }}</td>
+            <td>{{ $data->lattitude }}</td>
+            <td>{{ $data->longtitude }}</td>
             <td><img src="{{ url($imgpath) }}" style="width: 100px;" alt=""></td>
             <td><img src="{{ url($imgpath2) }}" style="width: 100px;" alt=""></td>
             <td>
