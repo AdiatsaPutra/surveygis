@@ -257,14 +257,6 @@
     </table>
 </div>
 {!! $survey->links() !!}
-{{-- 
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpYXRzYSIsImEiOiJja2w1eWhlOXMxcHdxMnBvZXVkcmhnaXF6In0.kZ56zJwTnSp0r5VH3cIKEg';
-    var map = new mapboxgl.Map({
-        container: 'map',
-        center: defaultLocation,
-        zoom: 15,
-
-    }); --}}
 
 @push('scripts')
 <script>

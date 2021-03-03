@@ -121,15 +121,6 @@
     </div>
 </div>
 
-{{-- 
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpYXRzYSIsImEiOiJja2w1eWhlOXMxcHdxMnBvZXVkcmhnaXF6In0.kZ56zJwTnSp0r5VH3cIKEg';
-    var map = new mapboxgl.Map({
-        container: 'map',
-        center: defaultLocation,
-        zoom: 15,
-
-    }); --}}
-
 @push('scripts')
 <script>
 
@@ -154,11 +145,13 @@
 
     // Add Map Controller
     map.addControl(new mapboxgl.GeolocateControl({
-  positionOptions: {
-    enableHighAccuracy: true
-  },
-    trackUserLocation: true
-}));
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+        trackUserLocation: true
+    }));
+
+    map.addControl(new mapboxgl.NavigationControl());
 
     // Get Latittude Longitude
     map.on('click', function (e) {
