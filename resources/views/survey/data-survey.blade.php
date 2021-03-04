@@ -76,9 +76,9 @@
             <td>
                 <div class="row">
                     <div class="col-4">
-                        <form action="/cetak/{{ $data->id }}">
+                        <form action="/detail/{{ $data->id }}">
                             <button class="btn btn-primary">
-                                Cetak
+                                Detail
                             </button>
                         </form>
                     </div>

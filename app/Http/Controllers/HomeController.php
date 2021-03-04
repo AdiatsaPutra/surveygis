@@ -119,6 +119,12 @@ class HomeController extends Controller
         return view('survey.edit-survey', compact('survey'));
     }
 
+    public function show($id)
+    {
+        $survey = Survey::findOrFail($id);
+        return view('survey.detail', compact('survey'));
+    }
+
     public function print($id)
     {
         $survey = Survey::findOrFail($id);
