@@ -8,7 +8,7 @@
         <div class="row mb-3">
             <div class="btn-group">
                 <div class="col-6">
-                    <input type="text" class="form-control" placeholder="Cari Data" name="keyword">
+                    <input type="text" class="form-control" placeholder="Cari Data , Keyword (Nama/Kategori/Kelurahan/RW)" name="keyword">
                 </div>
                 <div class="col-2">
                     <button id="btnsearch" class="btn btn-primary" type="submit">Search</button>
