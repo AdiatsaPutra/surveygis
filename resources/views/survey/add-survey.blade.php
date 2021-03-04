@@ -185,15 +185,16 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpYXRzYSIsImEiOiJja2w1eWhlOXMxcHdxMnBvZXVkc
     
     date = new Date();
     hari = date.getDay();
-    tanggal = date.getDate();
     bulan = date.getMonth();
     tahun = date.getFullYear();
     hariIndonesia = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
     bulanIndonesia = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober",
         "November", "Desember"
     ];
-    var formattedTanggal = hariIndonesia[hari] + ', ' + tanggal + ' ' + bulanIndonesia[bulan] + ' ' + tahun;
+    console.log(hari)
+    var formattedTanggal = hariIndonesia[hari - 1] + ', ' + hari + ' ' + bulanIndonesia[bulan] + ' ' + tahun;
     document.getElementById('tgl').value = formattedTanggal;
+    console.log(formattedTanggal)
 
 </script>
 @endpush
