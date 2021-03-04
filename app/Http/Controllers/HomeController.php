@@ -39,7 +39,9 @@ class HomeController extends Controller
     {
         $survey = Survey::when($request->keyword, function ($query) use ($request) {
             $query->where('namalokasi', 'like', "%{$request->keyword}%")
-                ->orWhere('kategori', 'like', "%{$request->keyword}%");
+                ->orWhere('kategori', 'like', "%{$request->keyword}%")
+                ->orWhere('kelurahan', 'like', "%{$request->keyword}%")
+                ->orWhere('rw', 'like', "%{$request->keyword}%");
         })->paginate(5);
         return view('survey.data-survey', compact('survey'));
     }
