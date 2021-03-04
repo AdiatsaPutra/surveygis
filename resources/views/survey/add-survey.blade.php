@@ -31,9 +31,21 @@
                         </div>
                     </div>
                     <div class="col-sm-12">
+                        <label class="form-label">Kategori</label>
                         <div class="mb-1">
-                            <label class="form-label">Kategori</label>
-                            <input type="text" class="form-control" placeholder=" Masukan Jenis Lokasi" name="kategori">
+                            <div class="input-group" >
+                                <select class="form-select" aria-label="Default select example" name="kategori">
+                                    <option selected>Pilih Kategori</option>
+                                    <option value="Balai RW">Balai RW</option>
+                                    <option value="Balai RK">Balai RK</option>
+                                    <option value="Balai Warga">Balai Warga</option>
+                                    <option value="Fasum">Fasum</option>
+                                    <option value="Tempat Ibadah">Tempat Ibadah</option>
+                                    <option value="RTHP">RTHP</option>
+                                    <option value="Rumah Warga">Rumah Warga</option>
+                                    <option value="Tempat Aktivitas Warga Lain">Tempat Aktivitas Warga Lain</option>
+                                  </select>
+                              </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
