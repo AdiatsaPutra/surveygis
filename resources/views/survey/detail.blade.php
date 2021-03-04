@@ -78,8 +78,8 @@
                         </tr>
                     </table>
                     <form action="/cetak/{{ $survey->id }}">
-                        <button class="btn btn-primary">
-                            Detail
+                        <button class="btn btn-primary mt-3">
+                            Cetak
                         </button>
                     </form>
                 </div>
