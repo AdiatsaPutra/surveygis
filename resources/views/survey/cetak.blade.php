@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+<form class="form-inline">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,8 +8,8 @@
             integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <title>Cetak</title>
     </head>
-
-    <body>
+    
+    <body onload="window.print()">
         <div class="container">
             @php
             $imgpath = Storage::url('images/'.$survey->fotolokasi1);
@@ -17,7 +17,6 @@
             @endphp
             <table>
             <img src="{{ url($imgpath) }}" style="width: 500px;" alt="">
-            <img src="{{ url($imgpath2) }}" style="width: 500px;" alt="">
                 <tr>
                     <th style="min-width: 180px;">Nama Lokasi</th>
                     <td>{{ $survey->namalokasi }}</td>
@@ -79,12 +78,12 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
                 crossorigin="anonymous">
+                window.print();
             </script>
             <script>
-                window.print()
-
             </script>
             @endpush
+        
     </body>
-
+</form>
 </html>

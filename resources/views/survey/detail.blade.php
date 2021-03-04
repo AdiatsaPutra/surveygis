@@ -78,9 +78,7 @@
                         </tr>
                     </table>
                     <form action="/cetak/{{ $survey->id }}">
-                        <button class="btn btn-primary mt-3">
-                            Cetak
-                        </button>
+                        <button class="btn btn-primary mt-3" onclick="window.onload = function() { window.print(); }">Cetak</button>
                     </form>
                 </div>
             </div>
