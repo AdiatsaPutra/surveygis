@@ -9,17 +9,16 @@
             integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <title>Life Media</title>
     </head>
-    
     <body onload="window.print()">
         <div class="container">
-            
+            <div class="row">
                 <h3 class="text-center p-3 font-weight-bold">
                     <p><u> Data Survey Wifi Publik {{ $survey->namalokasi }}</u></p>
                 </h3>
-            
+            </div>
             @php
             $imgpath = Storage::url('images/'.$survey->fotolokasi1);
-            $imgpath2 = Storage::url('images/'.$survey->fotolokasi2);
+            
             @endphp
             <table>
             <img src="{{ url($imgpath) }}" style="width: 500px;" alt="">
@@ -89,7 +88,7 @@
             <script>
             </script>
             @endpush
-        
+        </div>
     </body>
 </form>
 </html>

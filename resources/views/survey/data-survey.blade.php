@@ -25,7 +25,7 @@
         <h3 class="font-weight-bold">Belum Ada Data</h3>
     </div>
     @endif
-    <table>
+    <table id="example">
         @if(!$survey->isEmpty())
         <tr>
             <th style="min-width: 180px;">No.</th>
@@ -111,7 +111,14 @@
 
 @push('scripts')
 <script>
-
+    $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'print'
+        ]
+    } );
+} );
 </script>
 @endpush
 
