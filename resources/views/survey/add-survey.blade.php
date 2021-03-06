@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         <div class="col-md-4 mb-5">
-            <form method="post" action="/add-data" enctype="multipart/form-data">
+            <form method="post" action="/add-data" enctype="multipart/form-data" name="myForm" onsubmit="required()">
             @csrf
                 <div class="row">
                     <div class="col-sm-6">
@@ -27,7 +27,7 @@
                     <div class="col-sm-12" >
                         <div class="mb-1" >
                             <label class="form-label">Nama Lokasi</label>
-                            <input type="text" class="form-control" placeholder=" Masukan Nama lokasi" name="namalokasi" required>
+                            <input type="text" class="form-control" placeholder=" Masukan Nama lokasi" name="namalokasi">
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -51,37 +51,37 @@
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label class="form-label">RT</label>
-                            <input type="text" class="form-control" placeholder="Masukkan RT" name="rt" required>
+                            <input type="text" class="form-control" placeholder="Masukkan RT" name="rt" >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label class="form-label">RW</label>
-                            <input type="text" class="form-control" placeholder="Masukkan RW" name="rw" required>
+                            <input type="text" class="form-control" placeholder="Masukkan RW" name="rw">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-1">
                             <label class="form-label">Kelurahan</label>
-                            <input type="text" class="form-control" placeholder=" Masukan Kelurahan" name="kelurahan" required> 
+                            <input type="text" class="form-control" placeholder=" Masukan Kelurahan" name="kelurahan"> 
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-1">
                             <label class="form-label">Kecamatan</label>
-                            <input type="text" class="form-control" placeholder=" Masukan Kecamatan" name="kecamatan" required>
+                            <input type="text" class="form-control" placeholder=" Masukan Kecamatan" name="kecamatan">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label class="form-label">PIC 1</label>
-                            <input type="text" class="form-control" placeholder="Masukkan PIC 1" name="pic1" required>
+                            <input type="text" class="form-control" placeholder="Masukkan PIC 1" name="pic1">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label class="form-label">Telepon</label>
-                            <input type="text" class="form-control" placeholder="Masukan Telepon" name="telp1" required>
+                            <input type="text" class="form-control" placeholder="Masukan Telepon" name="telp1">
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -110,19 +110,19 @@
                     <div class="col-sm-12">
                         <div class="mb-1">
                             <label class="form-label">Foto Lokasi</label>
-                            <input type="file" class="form-control" id="foto" onchange="preview()" name="foto1" required>
+                            <input type="file" class="form-control" id="foto" onchange="preview()" name="foto1">
                             <img id="frame" src="https://lh3.googleusercontent.com/proxy/fYI879ZJ09mWbx2no1xkMkGAD300RMAt-1SSKK4_Fi2sexTAnC3428iqXP56nfdY3XpGvzqUNnx2tJ61wRBKjtxaVmUGen8BpHFyn8xdTBw1QHR0_7d-dNiYJ6iOhg" width="300px" height="300px"/>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-1">
                              <label class="form-label">Foto Lokasi 2</label>
-                            <input type="file" class="form-control" id="foto" onchange="preview2()" name="foto2" required>
+                            <input type="file" class="form-control" id="foto" onchange="preview2()" name="foto2">
                             <img id="frame2" src="https://lh3.googleusercontent.com/proxy/fYI879ZJ09mWbx2no1xkMkGAD300RMAt-1SSKK4_Fi2sexTAnC3428iqXP56nfdY3XpGvzqUNnx2tJ61wRBKjtxaVmUGen8BpHFyn8xdTBw1QHR0_7d-dNiYJ6iOhg" width="300px" height="300px"/>
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <button class="btn btn-primary btn-block mt-3" type="submit" onclick="myfunction()">Submit</button>
+                        <button class="btn btn-primary btn-block mt-3" type="submit"  >Submit</button>
                     </div>
                 </div>
             </form>
@@ -135,6 +135,46 @@
 
 @push('scripts')
 <script>
+
+    function required()
+    {
+        var namalokasi = document.forms["myForm"]["namalokasi"].value;
+        if (namalokasi == ""){
+            alert ("Nama Lokasi Tidak Boleh Kosong!");
+            return false;
+        }
+        var rt = document.forms["myForm"]["rt"].value;
+        if (rt == ""){
+            alert ("RT Tidak Boleh Kosong!");
+            return false;
+        }
+        var rw = document.forms["myForm"]["rw"].value;
+        if (rw == ""){
+            alert ("RW Tidak Boleh Kosong!");
+            return false;
+        }
+        var kelurahan = document.forms["myForm"]["kelurahan"].value;
+        if (kelurahan == ""){
+            alert ("Kelurahan Tidak Boleh Kosong!");
+            return false;
+        }
+        var kecamatan = document.forms["myForm"]["kecamatan"].value;
+        if (kecamatan == ""){
+            alert ("Kecamatan Tidak Boleh Kosong!");
+            return false;
+        }
+        var pic1 = document.forms["myForm"]["pic1"].value;
+        if (pic1 == ""){
+            alert ("Pic1 Tidak Boleh Kosong!");
+            return false;
+        }
+        var telp1 = document.forms["myForm"]["telp1"].value;
+        if (telp1 == ""){
+            alert ("Nomor Telepon Tidak Boleh Kosong!");
+            return false;
+        }
+       
+    }
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpYXRzYSIsImEiOiJja2w1eWhlOXMxcHdxMnBvZXVkcmhnaXF6In0.kZ56zJwTnSp0r5VH3cIKEg';
         var map = new mapboxgl.Map({
