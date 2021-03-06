@@ -26,6 +26,6 @@ Route::get('/data-survey', [App\Http\Controllers\HomeController::class, 'data'])
 Route::post('/add-data', [App\Http\Controllers\HomeController::class, 'store']);
 Route::delete('/delete/{id}', [App\Http\Controllers\HomeController::class, 'destroy']);
 Route::get('/edit-data/{id}', [App\Http\Controllers\HomeController::class, 'edit']);
-Route::post('/edit-data{id}', [App\Http\Controllers\HomeController::class, 'update']);
+Route::put('/edit-data/{id}', [App\Http\Controllers\HomeController::class, 'update']);
 Route::get('/detail/{id}', [App\Http\Controllers\HomeController::class, 'show']);
 Route::get('/cetak/{id}', [App\Http\Controllers\HomeController::class, 'print']);

@@ -7,10 +7,10 @@
     </div>
     <div class="row">
         <div class="col-md-4 mb-5">
-            <form method="post" action="" enctype="multipart/form-data">
+            <form method="POST" action="/edit-data/{{ $survey->id }}" enctype="multipart/form-data">
             <div class="form-group">
               @csrf
-              @method('PATCH')
+              @method('PUT')
                 <div class="row">
                     <div class="col-sm-6">
                          <div class="mb-1">

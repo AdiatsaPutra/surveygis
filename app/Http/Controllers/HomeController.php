@@ -133,35 +133,36 @@ class HomeController extends Controller
 
     public function update(Request $request, $id)
     {
-        $updateData = $request->validate([
-            'lng' => 'required',
-            'lat' => 'required',
-            'namalokasi' => 'required',
-            'kategori' => 'required',
-            'rt' => 'required',
-            'rw' => 'required',
-            'kelurahan' => 'required',
-            'kecamatan' => 'required',
-            'pic1' => 'required',
-            'telp1' => 'required',
-            'namasurveyor' => 'required',
-            'tgl' => 'required',
-            'foto1' => 'required|file',
-            'foto2' => 'required|file',
-        ]);
+        // $updateData = $request->validate([
+        //     'lng' => 'required',
+        //     'lat' => 'required',
+        //     'namalokasi' => 'required',
+        //     'kategori' => 'required',
+        //     'rt' => 'required',
+        //     'rw' => 'required',
+        //     'kelurahan' => 'required',
+        //     'kecamatan' => 'required',
+        //     'pic1' => 'required',
+        //     'telp1' => 'required',
+        //     'namasurveyor' => 'required',
+        //     'tgl' => 'required',
+        //     'foto1' => 'required|file',
+        //     'foto2' => 'required|file',
+        // ]);
 
-        $extension = $request->file('foto1')->extension();
-        $extension2 = $request->file('foto2')->extension();
-        $random = Str::random(10);
-        $random2 = Str::random(10);
-        $imgName = $random . '.' . $extension;
-        $imgName2 = $random2 . '.' . $extension2;
+        // $extension = $request->file('foto1')->extension();
+        // $extension2 = $request->file('foto2')->extension();
+        // $random = Str::random(10);
+        // $random2 = Str::random(10);
+        // $imgName = $random . '.' . $extension;
+        // $imgName2 = $random2 . '.' . $extension2;
 
-        Storage::putFileAs('public/images', $request->file('foto1'), $imgName);
-        Storage::putFileAs('public/images', $request->file('foto2'), $imgName2);
+        // Storage::putFileAs('public/images', $request->file('foto1'), $imgName);
+        // Storage::putFileAs('public/images', $request->file('foto2'), $imgName2);
 
-        Survey::whereId($id)->update($updateData);
-
-        return redirect('/datasurvey');
+        // Survey::whereId($id)->update($updateData);
+        $survey = Survey::findOrFail($id);
+        $survey->update($request->all());
+        return redirect('/data-survey');
     }
 }
