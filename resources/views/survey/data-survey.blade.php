@@ -4,38 +4,45 @@
 
 <div class="container-fluid mt-5 mb-5" style="overflow-x:auto;">
     <div class="noprint">
-        <button onclick="window.print()">Cetak</button>
-        <div id="checkbox_div">
-            <input type="checkbox" value="hide" id="name_col" onchange="hide_show_table(this.id);">Name
-            <input type="checkbox" value="hide" id="kategori_col" onchange="hide_show_table(this.id);">Kategori
-            <input type="checkbox" value="hide" id="rt_col" onchange="hide_show_table(this.id);">RT
-            <input type="checkbox" value="hide" id="rw_col" onchange="hide_show_table(this.id);">RW
-            <input type="checkbox" value="hide" id="kelurahan_col" onchange="hide_show_table(this.id);">Kelurahan
-            <input type="checkbox" value="hide" id="kecamatan_col" onchange="hide_show_table(this.id);">Kecamatan
-            <input type="checkbox" value="hide" id="pic_1_col" onchange="hide_show_table(this.id);">PIC 1
-            <input type="checkbox" value="hide" id="no_telp_pic_1_col" onchange="hide_show_table(this.id);">Telp PIC 1
-            <input type="checkbox" value="hide" id="pic_2_col" onchange="hide_show_table(this.id);">PIC 2
-            <input type="checkbox" value="hide" id="no_telp_pic_2_col" onchange="hide_show_table(this.id);">Telp PIC 2
-            <input type="checkbox" value="hide" id="surveyor_col" onchange="hide_show_table(this.id);">Surveyor
-            <input type="checkbox" value="hide" id="tanggal_col" onchange="hide_show_table(this.id);">Tanggal
-            <input type="checkbox" value="hide" id="lattitude_col" onchange="hide_show_table(this.id);">Lattitude
-            <input type="checkbox" value="hide" id="longtitude_col" onchange="hide_show_table(this.id);">Longtitude
+        <div class="row mb-3">
+            <div class="col-3">
+                <button class="btn btn-success" onclick="window.print()">Cetak</button>
+            </div>
+            <div class="col-6">
+                <a id="btntambah" href="{{ route('home') }}" class="btn btn-danger" type="submit">Tambah Data</a>
+            </div>
+        </div>
+        <p>Perlihatkan Sembunyikan Kolom</p>
+        <div class="row mt-1 mb-1">
+            <div class="col">
+                <input type="checkbox" value="hide" id="name_col" onchange="hide_show_table(this.id);">Name
+                <input type="checkbox" value="hide" id="kategori_col" onchange="hide_show_table(this.id);">Kategori
+                <input type="checkbox" value="hide" id="rt_col" onchange="hide_show_table(this.id);">RT
+                <input type="checkbox" value="hide" id="rw_col" onchange="hide_show_table(this.id);">RW
+                <input type="checkbox" value="hide" id="kelurahan_col" onchange="hide_show_table(this.id);">Kelurahan
+                <input type="checkbox" value="hide" id="kecamatan_col" onchange="hide_show_table(this.id);">Kecamatan
+                <input type="checkbox" value="hide" id="pic_1_col" onchange="hide_show_table(this.id);">PIC 1
+                <input type="checkbox" value="hide" id="no_telp_pic_1_col" onchange="hide_show_table(this.id);">Telp PIC
+                1
+                <input type="checkbox" value="hide" id="pic_2_col" onchange="hide_show_table(this.id);">PIC 2
+                <input type="checkbox" value="hide" id="no_telp_pic_2_col" onchange="hide_show_table(this.id);">Telp PIC
+                2
+                <input type="checkbox" value="hide" id="surveyor_col" onchange="hide_show_table(this.id);">Surveyor
+                <input type="checkbox" value="hide" id="tanggal_col" onchange="hide_show_table(this.id);">Tanggal
+                <input type="checkbox" value="hide" id="lattitude_col" onchange="hide_show_table(this.id);">Lattitude
+                <input type="checkbox" value="hide" id="longtitude_col" onchange="hide_show_table(this.id);">Longtitude
+            </div>
         </div>
     </div>
     @if(!$survey->isEmpty())
     <form class="noprint" action="{{ url()->current() }}">
         <div class="row mb-3">
-            <div class="btn-group">
-                <div class="col-6">
-                    <input type="text" class="form-control"
-                        placeholder="Cari Data , Keyword (Nama/Kategori/Kelurahan/RW)" name="keyword">
-                </div>
-                <div class="col-2">
-                    <button id="btnsearch" class="btn btn-primary" type="submit">Search</button>
-                </div>
-                <div class="col-2">
-                    <a id="btntambah" href="{{ route('home') }}" class="btn btn-danger" type="submit">Tambah Data</a>
-                </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="Cari Data (Nama/Kategori/Kelurahan/RW)"
+                    name="keyword">
+            </div>
+            <div class="col-md-6">
+                <button id="btnsearch" class="btn btn-primary" type="submit">Search</button>
             </div>
         </div>
     </form>
