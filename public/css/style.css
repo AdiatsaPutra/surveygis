@@ -163,5 +163,6 @@ footer{
 @media print{
    .noprint{
        display:none;
+       overflow: hidden;
    }
 }

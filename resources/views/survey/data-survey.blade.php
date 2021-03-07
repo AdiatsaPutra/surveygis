@@ -71,7 +71,7 @@
             <th id="longtitude_col_head" style="min-width: 100px;">Longtitude</th>
             <!-- <th id="gambar_1_col_head" style="min-width: 180px;">Gambar 1</th>
             <th id=">gambar_2_col_head" style="min-width: 180px;">Gambar 2</th> -->
-            <th class="noprint" id="actions" style="min-width: 180px;">Actions</th>
+            <th class="noprint" id="actions" style="min-width: 300px;">Actions</th>
         </tr>
         @else
         @endif
@@ -102,21 +102,21 @@
             <td><img src="{{ url($imgpath2) }}" style="width: 100px;" alt=""></td> -->
             <td class="noprint">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-3">
                         <form action="/detail/{{ $data->id }}">
                             <button class="btn btn-primary">
                                 Detail
                             </button>
                         </form>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <form action="/edit-data/{{ $data->id }}">
                             <button type="submit" class="btn btn-warning">
                                 Edit
                             </button>
                         </form>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <form method="post" action="/delete/{{ $data->id }}">
                             @method('delete')
                             @csrf

@@ -100,12 +100,6 @@ class HomeController extends Controller
         return redirect('/data-survey');
     }
 
-    public function showModal($id)
-    {
-        $survey = Survey::findOrFail($id);
-        return view('survey.data-table', compact('survey'));
-    }
-
     public function destroy($id)
     {
         $survey = Survey::findOrFail($id);
