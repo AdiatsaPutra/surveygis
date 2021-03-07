@@ -110,15 +110,17 @@
                     <div class="col-sm-12">
                         <div class="mb-1">
                             <label class="form-label">Foto Lokasi</label>
-                            <input type="file" class="form-control" id="foto" onchange="preview()" name="foto1">
-                            <img id="frame" src="https://lh3.googleusercontent.com/proxy/fYI879ZJ09mWbx2no1xkMkGAD300RMAt-1SSKK4_Fi2sexTAnC3428iqXP56nfdY3XpGvzqUNnx2tJ61wRBKjtxaVmUGen8BpHFyn8xdTBw1QHR0_7d-dNiYJ6iOhg" width="300px" height="300px"/>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="mb-1">
-                             <label class="form-label">Foto Lokasi 2</label>
-                            <input type="file" class="form-control" id="foto" onchange="preview2()" name="foto2">
-                            <img id="frame2" src="https://lh3.googleusercontent.com/proxy/fYI879ZJ09mWbx2no1xkMkGAD300RMAt-1SSKK4_Fi2sexTAnC3428iqXP56nfdY3XpGvzqUNnx2tJ61wRBKjtxaVmUGen8BpHFyn8xdTBw1QHR0_7d-dNiYJ6iOhg" width="300px" height="300px"/>
+                            <input multiple type="file" class="form-control" id="foto" onchange="preview()" name="foto1">
+                            <img id="frame" width="100px" height="100px"/>
+                            <img id="frame2" width="100px" height="100px"/>
+                            <img id="frame3" width="100px" height="100px"/>
+                            <img id="frame4" width="100px" height="100px"/>
+                            <img id="frame5" width="100px" height="100px"/>
+                            <img id="frame6" width="100px" height="100px"/>
+                            <img id="frame7" width="100px" height="100px"/>
+                            <img id="frame8" width="100px" height="100px"/>
+                            <img id="frame9" width="100px" height="100px"/>
+                            <img id="frame10" width="100px" height="100px"/>
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -235,6 +237,20 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpYXRzYSIsImEiOiJja2w1eWhlOXMxcHdxMnBvZXVkc
     var formattedTanggal = hariIndonesia[hari - 1] + ', ' + hari + ' ' + bulanIndonesia[bulan] + ' ' + tahun;
     document.getElementById('tgl').value = formattedTanggal;
     console.log(formattedTanggal)
+
+    function preview() {
+        frame.src=URL.createObjectURL(event.target.files[0]);
+        frame2.src=URL.createObjectURL(event.target.files[1]);
+        frame3.src=URL.createObjectURL(event.target.files[2]);
+        frame4.src=URL.createObjectURL(event.target.files[3]);
+        frame5.src=URL.createObjectURL(event.target.files[4]);
+        frame6.src=URL.createObjectURL(event.target.files[5]);
+        frame7.src=URL.createObjectURL(event.target.files[6]);
+        frame8.src=URL.createObjectURL(event.target.files[7]);
+        frame9.src=URL.createObjectURL(event.target.files[8]);
+        frame10.src=URL.createObjectURL(event.target.files[9]);
+        
+    }
 
 </script>
 @endpush
