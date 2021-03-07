@@ -3,8 +3,27 @@
 @section('content')
 
 <div class="container-fluid mt-5 mb-5" style="overflow-x:auto;">
+    <div class="noprint">
+        <button onclick="window.print()">Cetak</button>
+        <div id="checkbox_div">
+            <input type="checkbox" value="hide" id="name_col" onchange="hide_show_table(this.id);">Name
+            <input type="checkbox" value="hide" id="kategori_col" onchange="hide_show_table(this.id);">Kategori
+            <input type="checkbox" value="hide" id="rt_col" onchange="hide_show_table(this.id);">RT
+            <input type="checkbox" value="hide" id="rw_col" onchange="hide_show_table(this.id);">RW
+            <input type="checkbox" value="hide" id="kelurahan_col" onchange="hide_show_table(this.id);">Kelurahan
+            <input type="checkbox" value="hide" id="kecamatan_col" onchange="hide_show_table(this.id);">Kecamatan
+            <input type="checkbox" value="hide" id="pic_1_col" onchange="hide_show_table(this.id);">PIC 1
+            <input type="checkbox" value="hide" id="no_telp_pic_1_col" onchange="hide_show_table(this.id);">Telp PIC 1
+            <input type="checkbox" value="hide" id="pic_2_col" onchange="hide_show_table(this.id);">PIC 2
+            <input type="checkbox" value="hide" id="no_telp_pic_2_col" onchange="hide_show_table(this.id);">Telp PIC 2
+            <input type="checkbox" value="hide" id="surveyor_col" onchange="hide_show_table(this.id);">Surveyor
+            <input type="checkbox" value="hide" id="tanggal_col" onchange="hide_show_table(this.id);">Tanggal
+            <input type="checkbox" value="hide" id="lattitude_col" onchange="hide_show_table(this.id);">Lattitude
+            <input type="checkbox" value="hide" id="longtitude_col" onchange="hide_show_table(this.id);">Longtitude
+        </div>
+    </div>
     @if(!$survey->isEmpty())
-    <form action="{{ url()->current() }}">
+    <form class="noprint" action="{{ url()->current() }}">
         <div class="row mb-3">
             <div class="btn-group">
                 <div class="col-6">
@@ -28,52 +47,53 @@
     <table id="example">
         @if(!$survey->isEmpty())
         <tr>
-            <th style="min-width: 180px;">No.</th>
-            <th style="min-width: 180px;">Nama Lokasi</th>
-            <th style="min-width: 180px;">Kategori</th>
-            <th style="min-width: 180px;">RT</th>
-            <th style="min-width: 180px;">RW</th>
-            <th style="min-width: 180px;">Kelurahan</th>
-            <th style="min-width: 180px;">Kecamatan</th>
-            <th style="min-width: 180px;">PIC 1</th>
-            <th style="min-width: 180px;">No Telp PIC 1</th>
-            <th style="min-width: 180px;">PIC 2</th>
-            <th style="min-width: 180px;">No Telp PIC 2</th>
-            <th style="min-width: 180px;">Surveyor</th>
-            <th style="min-width: 180px;">Tanggal Survey</th>
-            <th style="min-width: 180px;">Lattitude</th>
-            <th style="min-width: 180px;">Longtitude</th>
-            <th style="min-width: 180px;">Gambar 1</th>
-            <th style="min-width: 180px;">Gambar 2</th>
-            <th style="min-width: 180px;">Actions</th>
+            <th style="min-width: 10px;">No.</th>
+            <th id="name_col_head" style="min-width: 180px;">Nama Lokasi</th>
+            <th id="kategori_col_head" style="min-width: 100px;">Kategori</th>
+            <th id="rt_col_head" style="min-width: 100px;">RT</th>
+            <th id="rw_col_head" style="min-width: 100px;">RW</th>
+            <th id="kelurahan_col_head" style="min-width: 100px;">Kelurahan</th>
+            <th id="kecamatan_col_head" style="min-width: 100px;">Kecamatan</th>
+            <th id="pic_1_col_head" style="min-width: 100px;">PIC 1</th>
+            <th id="no_telp_pic_1_col_head" style="min-width: 180px;">No Telp PIC 1</th>
+            <th id="pic_2_col_head" style="min-width: 100px;">PIC 2</th>
+            <th id="no_telp_pic_2_col_head" style="min-width: 180px;">No Telp PIC 2</th>
+            <th id="surveyor_col_head" style="min-width: 100px;">Surveyor</th>
+            <th id="tanggal_col_head" style="min-width: 180px;">Tanggal Survey</th>
+            <th id="lattitude_col_head" style="min-width: 100px;">Lattitude</th>
+            <th id="longtitude_col_head" style="min-width: 100px;">Longtitude</th>
+            <!-- <th id="gambar_1_col_head" style="min-width: 180px;">Gambar 1</th>
+            <th id=">gambar_2_col_head" style="min-width: 180px;">Gambar 2</th> -->
+            <th class="noprint" id="actions" style="min-width: 180px;">Actions</th>
         </tr>
         @else
-
         @endif
         @forelse ($survey as $data)
         <tr>
-            @php
+            <td>{{ $loop->iteration + $survey->firstItem() - 1 }}</td>
+            <td class="name_col">{{ $data->namalokasi }}</td>
+            <td class="kategori_col">{{ $data->kategori }}</td>
+            <td class="rt_col">{{ $data->rt }}</td>
+            <td class="rw_col">{{ $data->rw }}</td>
+            <td class="kelurahan_col">{{ $data->kelurahan }}</td>
+            <td class="kecamatan_col">{{ $data->kecamatan }}</td>
+            <td class="pic_1_col">{{ $data->pic1 }}</td>
+            <td class="no_telp_pic_1_col">{{ $data->telp1 }}</td>
+            <td class="pic_2_col">{{ $data->pic2 }}</td>
+            <td class="no_telp_pic_2_col">{{ $data->telp2 }}</td>
+            <td class="surveyor_col">{{ $data->namasurveyor }}</td>
+            <td class="tanggal_col">{{ $data->tanggal }}</td>
+            <td class="lattitude_col">{{ $data->lattitude }}</td>
+            <td class="longtitude_col">{{ $data->longtitude }}</td>
+            <!-- @php
             $imgpath = Storage::url('images/'.$data->fotolokasi1);
             $imgpath2 = Storage::url('images/'.$data->fotolokasi2);
             @endphp
-            <td>{{ $loop->iteration + $survey->firstItem() - 1 }}</td>
-            <td>{{ $data->namalokasi }}</td>
-            <td>{{ $data->kategori }}</td>
-            <td>{{ $data->rt }}</td>
-            <td>{{ $data->rw }}</td>
-            <td>{{ $data->kelurahan }}</td>
-            <td>{{ $data->kecamatan }}</td>
-            <td>{{ $data->pic1 }}</td>
-            <td>{{ $data->telp1 }}</td>
-            <td>{{ $data->pic2 }}</td>
-            <td>{{ $data->telp2 }}</td>
-            <td>{{ $data->namasurveyor }}</td>
-            <td>{{ $data->tanggal }}</td>
-            <td>{{ $data->lattitude }}</td>
-            <td>{{ $data->longtitude }}</td>
-            <td><img src="{{ url($imgpath) }}" style="width: 100px;" alt=""></td>
-            <td><img src="{{ url($imgpath2) }}" style="width: 100px;" alt=""></td>
-            <td>
+            <td></td> -->
+
+            <!-- <td><img src="{{ url($imgpath) }}" style="width: 100px;" alt=""></td>
+            <td><img src="{{ url($imgpath2) }}" style="width: 100px;" alt=""></td> -->
+            <td class="noprint">
                 <div class="row">
                     <div class="col-4">
                         <form action="/detail/{{ $data->id }}">
@@ -111,14 +131,25 @@
 
 @push('scripts')
 <script>
-    $(document).ready(function() {
-    $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'print'
-        ]
-    } );
-} );
+    function hide_show_table(col_name) {
+        var checkbox_val = document.getElementById(col_name).value;
+        if (checkbox_val == "hide") {
+            var all_col = document.getElementsByClassName(col_name);
+            for (var i = 0; i < all_col.length; i++) {
+                all_col[i].style.display = "none";
+            }
+            document.getElementById(col_name + "_head").style.display = "none";
+            document.getElementById(col_name).value = "show";
+        } else {
+            var all_col = document.getElementsByClassName(col_name);
+            for (var i = 0; i < all_col.length; i++) {
+                all_col[i].style.display = "table-cell";
+            }
+            document.getElementById(col_name + "_head").style.display = "table-cell";
+            document.getElementById(col_name).value = "hide";
+        }
+    }
+
 </script>
 @endpush
 

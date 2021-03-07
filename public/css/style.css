@@ -126,3 +126,42 @@ footer{
         margin-left: -230px;
     }
 }
+
+#wrapper
+{
+ text-align:center;
+ margin:0 auto;
+ padding:0px;
+ width:995px;
+}
+#checkbox_div
+{
+ width:375px;
+ margin-left:309px;
+}
+#checkbox_div p
+{
+ margin:5px;
+ color:white;
+ font-weight:bold;
+ font-size:17px;
+}
+#checkbox_div li
+{
+ color:white;
+ display:inline-block;
+ margin:5px;
+ font-size:17px;
+ font-weight:bold;
+}
+#checkbox_div input[type="checkbox"]
+{
+ width:20px;
+ height:20px;
+}
+
+@media print{
+   .noprint{
+       display:none;
+   }
+}

@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>LiveMedia</title>
         <script src="{{ asset('js/app.js') }}" defer></script>
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -18,12 +18,11 @@
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
         @livewireStyles
-
     </head>
 
     <body>
         <div class="app" id="app">
-            <nav class="navbar navbar-expand-lg bg-dark">
+            <nav class="noprint navbar navbar-expand-lg bg-dark">
                 <div class="container">
                     <img class="logo" src="{{ asset('img/logo.png') }}">
                     
@@ -68,7 +67,7 @@
                 {{ isset($slot) ? $slot : null }}
             </main>
 
-            <footer class="bg-dark text-white text-md-start">
+            <footer class="noprint bg-dark text-white text-md-start">
                 <div class="container p-4">
                     <div class="row">
                         <div class="">
