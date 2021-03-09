@@ -250,7 +250,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpYXRzYSIsImEiOiJja2w1eWhlOXMxcHdxMnBvZXVkc
         frame9.src=URL.createObjectURL(event.target.files[8]);
         frame10.src=URL.createObjectURL(event.target.files[9]);
         
-
         // ini komen 
     }
 

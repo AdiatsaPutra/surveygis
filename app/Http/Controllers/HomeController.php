@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use PDF;
 
 class HomeController extends Controller
 {
@@ -28,6 +29,16 @@ class HomeController extends Controller
     public function index()
     {
         return view('survey.add-survey');
+
+    }
+
+    public function generatePDF(Request $request)
+    {
+
+        $survey = Survey::all();
+        $pdf = PDF::loadView('survey.download-data',compact('survey'));
+        dd($survey);
+        return $pdf -> stream();
     }
 
     /**
@@ -159,4 +170,6 @@ class HomeController extends Controller
         $survey->update($request->all());
         return redirect('/data-survey');
     }
+
+    
 }

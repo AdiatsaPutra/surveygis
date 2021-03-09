@@ -29,3 +29,7 @@ Route::get('/edit-data/{id}', [App\Http\Controllers\HomeController::class, 'edit
 Route::put('/edit-data/{id}', [App\Http\Controllers\HomeController::class, 'update']);
 Route::get('/detail/{id}', [App\Http\Controllers\HomeController::class, 'show']);
 Route::get('/cetak/{id}', [App\Http\Controllers\HomeController::class, 'print']);
+// Route::get('/laporan-pdf', [App\Http\Controllers\HomeController::class, 'generatePDF']);
+
+
+Route::get('download-data/',[App\Http\Controllers\HomeController::class, 'generatePDF']);

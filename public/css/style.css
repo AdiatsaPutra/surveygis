@@ -160,7 +160,12 @@ footer{
  height:20px;
 }
 
+#display{
+    transform: rotate(90deg);
+}
+
 @media print{
+    
    .noprint{
        display:none;
        overflow: hidden;

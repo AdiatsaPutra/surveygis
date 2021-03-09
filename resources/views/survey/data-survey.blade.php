@@ -6,7 +6,7 @@
     <div class="noprint">
         <div class="row mb-3">
             <div class="col-3">
-                <button class="btn btn-success" onclick="window.print()">Cetak</button>
+                <a class="btn btn-primary" href="{{ URL::to('/download-data') }}">Export to PDF</a>
             </div>
             <div class="col-6">
                 <a id="btntambah" href="{{ route('home') }}" class="btn btn-danger" type="submit">Tambah Data</a>
@@ -156,7 +156,6 @@
             document.getElementById(col_name).value = "hide";
         }
     }
-
 </script>
 @endpush
 
