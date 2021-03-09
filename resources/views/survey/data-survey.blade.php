@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container-fluid mt-5 mb-5" style="overflow-x:auto;">
     <div class="noprint">
         <div class="row mb-3">
@@ -31,6 +30,8 @@
                 <input type="checkbox" value="hide" id="tanggal_col" onchange="hide_show_table(this.id);">Tanggal
                 <input type="checkbox" value="hide" id="lattitude_col" onchange="hide_show_table(this.id);">Lattitude
                 <input type="checkbox" value="hide" id="longtitude_col" onchange="hide_show_table(this.id);">Longtitude
+                <input type="checkbox" value="hide" id="img1_col" onchange="hide_show_table(this.id);">Gambar1
+                <input type="checkbox" value="hide" id="img2_col" onchange="hide_show_table(this.id);">Gambar2
             </div>
         </div>
     </div>
@@ -69,8 +70,7 @@
             <th id="tanggal_col_head" style="min-width: 180px;">Tanggal Survey</th>
             <th id="lattitude_col_head" style="min-width: 100px;">Lattitude</th>
             <th id="longtitude_col_head" style="min-width: 100px;">Longtitude</th>
-            <!-- <th id="gambar_1_col_head" style="min-width: 180px;">Gambar 1</th>
-            <th id=">gambar_2_col_head" style="min-width: 180px;">Gambar 2</th> -->
+            <th id="gambar_1_col_head" style="min-width: 180px;">Gambar</th>
             <th class="noprint" id="actions" style="min-width: 300px;">Actions</th>
         </tr>
         @else
@@ -95,11 +95,10 @@
             <!-- @php
             $imgpath = Storage::url('images/'.$data->fotolokasi1);
             $imgpath2 = Storage::url('images/'.$data->fotolokasi2);
-            @endphp
-            <td></td> -->
-
-            <!-- <td><img src="{{ url($imgpath) }}" style="width: 100px;" alt=""></td>
-            <td><img src="{{ url($imgpath2) }}" style="width: 100px;" alt=""></td> -->
+            @endphp -->
+            <td>@foreach($data->foto as $foto)
+                <img src="{{ $foto->path }}" alt="" width="100px">
+                @endforeach</td>
             <td class="noprint">
                 <div class="row">
                     <div class="col-3">

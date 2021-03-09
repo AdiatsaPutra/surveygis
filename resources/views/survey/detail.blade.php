@@ -11,12 +11,20 @@
 
     <body>
         <div class="container d-flex justify-content-center mt-5 pb-5 border">
-            @php
+            <!-- @php
             $imgpath = Storage::url('images/'.$survey->fotolokasi1);
-            @endphp
+            @endphp -->
             <div class="row flex-column">
                 <div class="col">
-                    <img src="{{ url($imgpath) }}" style="width: 500px;" alt="">
+                    <!-- <img src="{{ url($imgpath) }}" style="width: 500px;" alt=""> -->
+                    <ul>
+                        @foreach($survey->foto as $foto)
+                        @once
+                        <img src="{{ $foto->path }}" alt="" width="150px">
+                        @endonce
+                        @endforeach
+                    </ul>
+                    <p>{{ $survey->namalokasi }}</p>
                 </div>
                 <div class="col">
                     <table>
@@ -78,7 +86,8 @@
                         </tr>
                     </table>
                     <form action="/cetak/{{ $survey->id }}">
-                        <button class="btn btn-primary mt-3" onclick="window.onload = function() { window.print(); }">Cetak</button>
+                        <button class="btn btn-primary mt-3"
+                            onclick="window.onload = function() { window.print(); }">Cetak</button>
                     </form>
                 </div>
             </div>

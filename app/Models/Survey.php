@@ -12,6 +12,12 @@ class Survey extends Model
     protected $fillable = [
         'lattitude',
         'longtitude', 'namalokasi', 'kategori', 'rt', 'rw', 'kelurahan', 'kecamatan',
-        'pic1', 'pic2', 'telp1', 'pic2', 'telp1', 'telp2', 'namasurveyor', 'tanggal', 'fotolokasi1', 'fotolokasi2'
+        'pic1', 'pic2', 'telp1', 'pic2', 'telp1', 'telp2', 'namasurveyor', 'tanggal'
+        // , 'fotolokasi1', 'fotolokasi2'
     ];
+
+    public function foto()
+    {
+        return $this->hasMany(Foto::class);
+    }
 }

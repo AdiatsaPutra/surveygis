@@ -27,6 +27,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $files = scandir(public_path('/storage/images'));
+        // $data = [];
+        // foreach ($files as $row) {
+        //     if ($row != '.' && $row != '..') {
+        //         $data[] = [
+        //             'name' => explode('.', $row)[0],
+        //             'url' => asset('/storage/images/' . $row)
+        //         ];
+        //     }
+        // }
         return view('survey.add-survey');
     }
 
@@ -49,53 +59,61 @@ class HomeController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'lng' => 'required',
-            'lat' => 'required',
-            'namalokasi' => 'required',
-            'kategori' => 'required',
-            'rt' => 'required',
-            'rw' => 'required',
-            'kelurahan' => 'required',
-            'kecamatan' => 'required',
-            'pic1' => 'required',
-            'telp1' => 'required',
-            'namasurveyor' => 'required',
-            'tgl' => 'required',
-            'foto1' => 'required|file',
-            'foto2' => 'required|file',
-        ]);
+        // $request->validate([
+        //     'lng' => 'required',
+        //     'lat' => 'required',
+        //     'namalokasi' => 'required',
+        //     'kategori' => 'required',
+        //     'rt' => 'required',
+        //     'rw' => 'required',
+        //     'kelurahan' => 'required',
+        //     'kecamatan' => 'required',
+        //     'pic1' => 'required',
+        //     'telp1' => 'required',
+        //     'namasurveyor' => 'required',
+        //     'tgl' => 'required',
+        //     'foto1' => 'required|file',
+        //     'foto2' => 'required|file',
+        // ]);
 
-        $extension = $request->file('foto1')->extension();
-        $extension2 = $request->file('foto2')->extension();
-        $random = Str::random(10);
-        $random2 = Str::random(10);
-        $imgName = $random . '.' . $extension;
-        $imgName2 = $random2 . '.' . $extension2;
 
-        Storage::putFileAs('public/images', $request->file('foto1'), $imgName);
-        Storage::putFileAs('public/images', $request->file('foto2'), $imgName2);
+        // $extension = $request->file('foto1')->extension();
+        // $extension2 = $request->file('foto2')->extension();
+        // $random = Str::random(10);
+        // $random2 = Str::random(10);
+        // $imgName = $random . '.' . $extension;
+        // $imgName2 = $random2 . '.' . $extension2;
+        $image = $request->file('foto');
 
-        Survey::create(
-            [
-                'lattitude' => $request->lat,
-                'longtitude' => $request->lng,
-                'namalokasi' => $request->namalokasi,
-                'kategori' => $request->kategori,
-                'rt' => $request->rt,
-                'rw' => $request->rw,
-                'kelurahan' => $request->kelurahan,
-                'kecamatan' => $request->kecamatan,
-                'pic1' => $request->pic1,
-                'pic2' => $request->pic2,
-                'telp1' => $request->telp1,
-                'telp2' => $request->telp2,
-                'namasurveyor' => $request->namasurveyor,
-                'tanggal' => $request->tgl,
-                'fotolokasi1' => $imgName,
-                'fotolokasi2' => $imgName2,
-            ]
-        );
+        $imageName = time() . '-' . strtoupper(Str::random(10)) . '.' . $image->extension();
+        $image->move(public_path('storage/images'), $imageName);
+
+        dd($imageName);
+        return response()->json(['success' => $imageName]);
+
+        // Storage::putFileAs('public/images', $request->file('foto1'), $imgName);
+        // Storage::putFileAs('public/images', $request->file('foto2'), $imgName2);
+
+        // Survey::create(
+        //     [
+        //         'lattitude' => $request->lat,
+        //         'longtitude' => $request->lng,
+        //         'namalokasi' => $request->namalokasi,
+        //         'kategori' => $request->kategori,
+        //         'rt' => $request->rt,
+        //         'rw' => $request->rw,
+        //         'kelurahan' => $request->kelurahan,
+        //         'kecamatan' => $request->kecamatan,
+        //         'pic1' => $request->pic1,
+        //         'pic2' => $request->pic2,
+        //         'telp1' => $request->telp1,
+        //         'telp2' => $request->telp2,
+        //         'namasurveyor' => $request->namasurveyor,
+        //         'tanggal' => $request->tgl,
+        //         'fotolokasi1' => $imgName,
+        //         'fotolokasi2' => $imgName2,
+        //     ]
+        // );
 
         return redirect('/data-survey');
     }

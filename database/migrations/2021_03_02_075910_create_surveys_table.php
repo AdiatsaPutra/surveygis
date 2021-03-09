@@ -29,8 +29,7 @@ class CreateSurveysTable extends Migration
             $table->string('telp2')->nullable();
             $table->string('namasurveyor')->nullable();
             $table->string('tanggal')->nullable();
-            $table->string('fotolokasi1')->nullable();
-            $table->string('fotolokasi2')->nullable();
+            $table->string('fotolokasi')->nullable();
             $table->timestamps();
         });
     }
