@@ -16,7 +16,13 @@
             @endphp
             <div class="row flex-column">
                 <div class="col">
-                    <img src="{{ url($imgpath) }}" style="width: 500px;" alt="">
+                    <ul>
+                        @foreach($survey->foto as $foto)
+                        @once
+                        <img src="{{ $foto->path }}" alt="" width="150px">
+                        @endonce
+                        @endforeach
+                    </ul>
                 </div>
                 <div class="col">
                     <table>
