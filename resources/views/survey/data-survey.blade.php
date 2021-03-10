@@ -98,7 +98,7 @@
             $imgpath2 = Storage::url('images/'.$data->fotolokasi2);
             @endphp
             <td></td> -->
-            <td>@foreach($data->foto as $foto)
+            <td class="img1_col">@foreach($data->foto as $foto)
                 <div class="d-flex justify-content-center flex-row">
                     @once
                     <img src="{{ $foto->path }}" alt="" width="100px">
