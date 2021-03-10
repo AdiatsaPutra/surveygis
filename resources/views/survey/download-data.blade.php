@@ -3,78 +3,45 @@
         <title></title>
     </head>
     <body>
-        {{-- <div class="container d-flex justify-content-center mt-5 pb-5 border">
-            @php
-            $imgpath = Storage::url('images/'.$survey->fotolokasi1);
-            @endphp
-            <div class="row flex-column">
-                <div class="col">
-                    <img src="{{ url($imgpath) }}" style="width: 500px;" alt="">
-                </div>
-                <div class="col">
-                    <table>
-                        <tr>
-                            <th style="min-width: 180px;">Nama Lokasi</th>
-                            <td>{{ $survey->namalokasi }}</td>
-                        </tr>
-                        <tr>
-                            <th style="min-width: 180px;">Kategori</th>
-                            <td>{{ $survey->kategori }}</td>
-                        </tr>
-                        <tr>
-                            <th style="min-width: 180px;">RT</th>
-                            <td>{{ $survey->rt }}</td>
-                        </tr>
-                        <tr>
-                            <th style="min-width: 180px;">RW</th>
-                            <td>{{ $survey->rw }}</td>
-                        </tr>
-                        <tr>
-                            <th style="min-width: 180px;">Kelurahan</th>
-                            <td>{{ $survey->kelurahan }}</td>
-                        </tr>
-                        <tr>
-                            <th style="min-width: 180px;">Kecamatan</th>
-                            <td>{{ $survey->kecamatan }}</td>
-                        </tr>
-                        <tr>
-                            <th style="min-width: 180px;">PIC 1</th>
-                            <td>{{ $survey->pic1 }}</td>
-                        </tr>
-                        <tr>
-                            <th style="min-width: 180px;">No Telp PIC 1</th>
-                            <td>{{ $survey->telp1 }}</td>
-                        </tr>
-                        <tr>
-                            <th style="min-width: 180px;">PIC 2</th>
-                            <td>{{ $survey->pic2 }}</td>
-                        </tr>
-                        <tr>
-                            <th style="min-width: 180px;">No Telp PIC 2</th>
-                            <td>{{ $survey->telp2 }}</td>
-                        </tr>
-                        <tr>
-                            <th style="min-width: 180px;">Surveyor</th>
-                            <td>{{ $survey->namasurveyor }}</td>
-                        </tr>
-                        <tr>
-                            <th style="min-width: 180px;">Tanggal Survey</th>
-                            <td>{{ $survey->tanggal }}</td>
-                        </tr>
-                        <tr>
-                            <th style="min-width: 180px;">Lattitude</th>
-                            <td>{{ $survey->lattitude }}</td>
-                        </tr>
-                        <tr>
-                            <th style="min-width: 180px;">Longtitude</th>
-                            <td>{{ $survey->longtitude }}</td>
-                        </tr>
-                    </table>
-                    <form action="/cetak/{{ $survey->id }}">
-                        <button class="btn btn-primary mt-3" onclick="window.onload = function() { window.print(); }">Cetak</button>
-                    </form>
-                </div>
-            </div> --}}
+        <table id="example">
+            <tr>
+                <th style="min-width: 10px;">No.</th>
+                <th id="name_col_head" style="min-width: 180px;">Nama Lokasi</th>
+                <th id="kategori_col_head" style="min-width: 100px;">Kategori</th>
+                <th id="rt_col_head" style="min-width: 100px;">RT</th>
+                <th id="rw_col_head" style="min-width: 100px;">RW</th>
+                <th id="kelurahan_col_head" style="min-width: 100px;">Kelurahan</th>
+                <th id="kecamatan_col_head" style="min-width: 100px;">Kecamatan</th>
+                <th id="pic_1_col_head" style="min-width: 100px;">PIC 1</th>
+                <th id="no_telp_pic_1_col_head" style="min-width: 180px;">No Telp PIC 1</th>
+                <th id="pic_2_col_head" style="min-width: 100px;">PIC 2</th>
+                <th id="no_telp_pic_2_col_head" style="min-width: 180px;">No Telp PIC 2</th>
+                <th id="surveyor_col_head" style="min-width: 100px;">Surveyor</th>
+                <th id="tanggal_col_head" style="min-width: 180px;">Tanggal Survey</th>
+                <th id="lattitude_col_head" style="min-width: 100px;">Lattitude</th>
+                <th id="longtitude_col_head" style="min-width: 100px;">Longtitude</th>
+                <th id="img1_col_head" style="min-width: 180px;">Gambar</th>
+            </tr>
+            @foreach ($survey as $data)
+            <tr>
+                <td>{{ $loop->iteration}}</td>
+                <td class="name_col">{{ $data->namalokasi }}</td>
+                <td class="kategori_col">{{ $data->kategori }}</td>
+                <td class="rt_col">{{ $data->rt }}</td>
+                <td class="rw_col">{{ $data->rw }}</td>
+                <td class="kelurahan_col">{{ $data->kelurahan }}</td>
+                <td class="kecamatan_col">{{ $data->kecamatan }}</td>
+                <td class="pic_1_col">{{ $data->pic1 }}</td>
+                <td class="no_telp_pic_1_col">{{ $data->telp1 }}</td>
+                <td class="pic_2_col">{{ $data->pic2 }}</td>
+                <td class="no_telp_pic_2_col">{{ $data->telp2 }}</td>
+                <td class="surveyor_col">{{ $data->namasurveyor }}</td>
+                <td class="tanggal_col">{{ $data->tanggal }}</td>
+                <td class="lattitude_col">{{ $data->lattitude }}</td>
+                <td class="longtitude_col">{{ $data->longtitude }}</td>
+            </tr>
+            @endforeach
+        </table>
             @push('scripts')
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"

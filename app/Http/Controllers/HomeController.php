@@ -35,8 +35,9 @@ class HomeController extends Controller
     {
 
         $survey = Survey::all();
-        $pdf = PDF::loadView('survey.download-data', compact('survey'));
+        $pdf = PDF::loadView('survey.download-data', compact('survey'))->setPaper('a4', 'landscape');
         return $pdf->stream();
+
     }
 
     /**
