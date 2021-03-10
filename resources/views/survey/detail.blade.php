@@ -18,9 +18,7 @@
                 <div class="col">
                     <ul>
                         @foreach($survey->foto as $foto)
-                        @once
                         <img src="{{ $foto->path }}" alt="" width="150px">
-                        @endonce
                         @endforeach
                     </ul>
                 </div>
@@ -84,7 +82,8 @@
                         </tr>
                     </table>
                     <form action="/cetak/{{ $survey->id }}">
-                        <button class="btn btn-primary mt-3" onclick="window.onload = function() { window.print(); }">Cetak</button>
+                        <button class="btn btn-primary mt-3"
+                            onclick="window.onload = function() { window.print(); }">Cetak</button>
                     </form>
                 </div>
             </div>

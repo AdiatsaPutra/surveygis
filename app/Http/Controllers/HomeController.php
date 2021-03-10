@@ -29,16 +29,14 @@ class HomeController extends Controller
     public function index()
     {
         return view('survey.add-survey');
-
     }
 
     public function generatePDF(Request $request)
     {
 
         $survey = Survey::all();
-        $pdf = PDF::loadView('survey.download-data',compact('survey'));
-        dd($survey);
-        return $pdf -> stream();
+        $pdf = PDF::loadView('survey.download-data', compact('survey'));
+        return $pdf->stream();
     }
 
     /**
@@ -170,6 +168,4 @@ class HomeController extends Controller
         $survey->update($request->all());
         return redirect('/data-survey');
     }
-
-    
 }

@@ -32,7 +32,7 @@
                 <input type="checkbox" value="hide" id="lattitude_col" onchange="hide_show_table(this.id);">Lattitude
                 <input type="checkbox" value="hide" id="longtitude_col" onchange="hide_show_table(this.id);">Longtitude
                 <input type="checkbox" value="hide" id="img1_col" onchange="hide_show_table(this.id);">Gambar1
-                
+
             </div>
         </div>
     </div>
@@ -71,9 +71,7 @@
             <th id="tanggal_col_head" style="min-width: 180px;">Tanggal Survey</th>
             <th id="lattitude_col_head" style="min-width: 100px;">Lattitude</th>
             <th id="longtitude_col_head" style="min-width: 100px;">Longtitude</th>
-            <th id="gambar_1_col_head" style="min-width: 180px;">Gambar</th>
-            <!-- <th id="gambar_1_col_head" style="min-width: 180px;">Gambar 1</th>
-            <th id=">gambar_2_col_head" style="min-width: 180px;">Gambar 2</th> -->
+            <th id="img1_col_head" style="min-width: 180px;">Gambar</th>
             <th class="noprint" id="actions" style="min-width: 300px;">Actions</th>
         </tr>
         @else
@@ -101,9 +99,13 @@
             @endphp
             <td></td> -->
             <td>@foreach($data->foto as $foto)
-                <img src="{{ $foto->path }}" alt="" width="100px">
+                <div class="d-flex justify-content-center flex-row">
+                    @once
+                    <img src="{{ $foto->path }}" alt="" width="100px">
+                    @endonce
+                </div>
                 @endforeach</td>
-            
+
             <td class="noprint">
                 <div class="row">
                     <div class="col-3">
@@ -160,6 +162,7 @@
             document.getElementById(col_name).value = "hide";
         }
     }
+
 </script>
 @endpush
 
