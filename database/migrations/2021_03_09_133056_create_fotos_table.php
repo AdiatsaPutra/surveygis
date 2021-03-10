@@ -17,7 +17,7 @@ class CreateFotosTable extends Migration
             $table->id();
             $table->string('path');
             $table->unsignedBigInteger('survey_id');
-            $table->foreign('survey_id')->references('id')->on('surveys');
+            $table->foreign('survey_id')->references('id')->on('surveys')->onDelete('cascade');
             $table->timestamps();
         });
     }

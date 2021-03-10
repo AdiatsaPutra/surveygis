@@ -125,6 +125,12 @@ footer{
     #btntambah{
         margin-left: -230px;
     }
+
+    /* #table{
+        margin-left: 0px;
+        position: auto;
+    } */
+    
 }
 
 #wrapper
@@ -171,3 +177,5 @@ footer{
        overflow: hidden;
    }
 }
+
+
