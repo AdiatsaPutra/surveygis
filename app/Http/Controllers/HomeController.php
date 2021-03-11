@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Foto;
 use App\Models\Survey;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -37,7 +38,6 @@ class HomeController extends Controller
         $survey = Survey::all();
         $pdf = PDF::loadView('survey.download-data', compact('survey'))->setPaper('a4', 'landscape');
         return $pdf->stream();
-
     }
 
     /**
@@ -58,7 +58,6 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
-
         $request->validate([
             'lng' => 'required',
             'lat' => 'required',
@@ -72,42 +71,40 @@ class HomeController extends Controller
             'telp1' => 'required',
             'namasurveyor' => 'required',
             'tgl' => 'required',
-            'foto1' => 'required|file',
-            'foto2' => 'required|file',
         ]);
 
-        $extension = $request->file('foto1')->extension();
-        $extension2 = $request->file('foto2')->extension();
-        $random = Str::random(10);
-        $random2 = Str::random(10);
-        $imgName = $random . '.' . $extension;
-        $imgName2 = $random2 . '.' . $extension2;
+        $survey = new Survey;
+        $survey->lattitude = $request->lat;
+        $survey->longtitude = $request->lng;
+        $survey->namalokasi = $request->namalokasi;
+        $survey->kategori = $request->kategori;
+        $survey->rt = $request->rt;
+        $survey->rw = $request->rw;
+        $survey->kelurahan = $request->kelurahan;
+        $survey->kecamatan = $request->kecamatan;
+        $survey->pic1 = $request->pic1;
+        $survey->pic2 = $request->pic2;
+        $survey->telp1 = $request->telp1;
+        $survey->telp2 = $request->telp2;
+        $survey->namasurveyor = $request->namasurveyor;
+        $survey->tanggal = $request->tgl;
+        $survey->save();
 
-        Storage::putFileAs('public/images', $request->file('foto1'), $imgName);
-        Storage::putFileAs('public/images', $request->file('foto2'), $imgName2);
-
-        Survey::create(
-            [
-                'lattitude' => $request->lat,
-                'longtitude' => $request->lng,
-                'namalokasi' => $request->namalokasi,
-                'kategori' => $request->kategori,
-                'rt' => $request->rt,
-                'rw' => $request->rw,
-                'kelurahan' => $request->kelurahan,
-                'kecamatan' => $request->kecamatan,
-                'pic1' => $request->pic1,
-                'pic2' => $request->pic2,
-                'telp1' => $request->telp1,
-                'telp2' => $request->telp2,
-                'namasurveyor' => $request->namasurveyor,
-                'tanggal' => $request->tgl,
-                'fotolokasi1' => $imgName,
-                'fotolokasi2' => $imgName2,
-            ]
-        );
-
-        return redirect('/data-survey');
+        if ($request->hasFile('foto')) {
+            $files = $request->file('foto');
+            foreach ($files as $file) {
+                $name = Str::random(10);
+                $extension = $file->getClientOriginalExtension();
+                $imgName = $name . '.' . $extension;
+                Storage::putFileAs('public/images', $file, $imgName);
+                $foto = new foto;
+                $foto->path = $imgName;
+                $foto->survey_id = $survey->id;
+                $foto->survey()->associate($survey);
+                $foto->save();
+            }
+        }
+        return redirect('data-survey');
     }
 
     public function destroy($id)

@@ -18,17 +18,15 @@
                         <p><u> Data Survey Wifi Publik {{ $survey->namalokasi }}</u></p>
                     </h3>
                 </div>
-                {{-- @php
-            $imgpath = Storage::url('images/'.$survey->fotolokasi1);
-            
-            @endphp --}}
-                @foreach($survey->foto as $foto)
-                @once
-                <img src="{{ $foto->path }}" alt="" width="150px">
-                @endonce
-                @endforeach
+               @foreach($survey->foto as $foto)
+                    @php
+                    $imgpath = Storage::url('images/'.$foto->path);
+                    @endphp
+                    @endforeach
+                    @foreach($survey->foto as $foto)
+                    <img src="{{ $imgpath }}" alt="" width="100px">
+                    @endforeach
                 <table>
-                    {{-- <img src="{{ url($imgpath) }}" style="width: 500px;" alt=""> --}}
                     <tr>
                         <th style="min-width: 180px;">Nama Lokasi</th>
                         <td>{{ $survey->namalokasi }}</td>
@@ -85,6 +83,7 @@
                         <th style="min-width: 180px;">Longtitude</th>
                         <td>{{ $survey->longtitude }}</td>
                     </tr>
+
                 </table>
                 @push('scripts')
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"

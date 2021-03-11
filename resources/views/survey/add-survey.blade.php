@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         <div class="col-md-4 mb-5">
-            <form method="post" action="/add-data" enctype="multipart/form-data" name="myForm" onsubmit="required()">
+            <form method="post" action="/add-data" enctype="multipart/form-data" name="myForm" onsubmit="">
                 @csrf
                 <div class="row">
                     <div class="col-sm-6">
@@ -111,23 +111,12 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-1">
-                            <label class="form-label">Foto Lokasi</label>
-                            <input multiple type="file" class="form-control" id="foto" onchange="preview()"
-                                name="foto1">
-                            <img id="frame" width="100px" height="100px" />
-                            <img id="frame2" width="100px" height="100px" />
-                            <img id="frame3" width="100px" height="100px" />
-                            <img id="frame4" width="100px" height="100px" />
-                            <img id="frame5" width="100px" height="100px" />
-                            <img id="frame6" width="100px" height="100px" />
-                            <img id="frame7" width="100px" height="100px" />
-                            <img id="frame8" width="100px" height="100px" />
-                            <img id="frame9" width="100px" height="100px" />
-                            <img id="frame10" width="100px" height="100px" />
+                            <label class="form-label">Masukkan Foto</label>
+                            <input type="file" class="form-control" id="foto" name="foto[]" multiple>
                         </div>
                     </div>
-                    <div class="col-sm-12">
-                        <button class="btn btn-primary btn-block mt-3" type="submit">Submit</button>
+                    <div class="col-sm-12 mt-3">
+                        <button type="submit" class="btn btn-block btn-primary">Tambahkan Data</button>
                     </div>
                 </div>
             </form>

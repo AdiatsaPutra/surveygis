@@ -14,10 +14,10 @@ class CreateSurveysTable extends Migration
     public function up()
     {
         Schema::create('surveys', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('lattitude')->nullable();
             $table->string('longtitude')->nullable();
-            $table->string('namalokasi');
+            $table->string('namalokasi')->nullable();
             $table->string('kategori')->nullable();
             $table->string('rt')->nullable();
             $table->string('rw')->nullable();

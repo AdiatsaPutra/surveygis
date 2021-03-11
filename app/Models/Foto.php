@@ -10,7 +10,7 @@ class Foto extends Model
     use HasFactory;
 
     protected $fillable = [
-        'path'
+        'path', 'survey_id'
     ];
 
     public function survey()
