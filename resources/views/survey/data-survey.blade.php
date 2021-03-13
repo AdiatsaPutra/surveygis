@@ -71,7 +71,7 @@
             <th id="tanggal_col_head" style="min-width: 180px;">Tanggal Survey</th>
             <th id="lattitude_col_head" style="min-width: 100px;">Lattitude</th>
             <th id="longtitude_col_head" style="min-width: 100px;">Longtitude</th>
-            <th class="noprint" id="actions" style="min-width: 300px;">Image</th>
+            <th id="img1_col_head" id="actions" style="min-width: 300px;">Image</th>
             <th class="noprint" id="actions" style="min-width: 300px;">Actions</th>
         </tr>
         @else
@@ -93,7 +93,7 @@
             <td class="tanggal_col">{{ $data->tanggal }}</td>
             <td class="lattitude_col">{{ $data->lattitude }}</td>
             <td class="longtitude_col">{{ $data->longtitude }}</td>
-            <td>@foreach($data->foto as $foto)
+            <td class="img1_col">@foreach($data->foto as $foto)
                 @php
                 $imgpath = Storage::url('images/'.$foto->path);
                 @endphp
