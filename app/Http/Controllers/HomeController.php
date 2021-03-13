@@ -135,36 +135,55 @@ class HomeController extends Controller
 
     public function update(Request $request, $id)
     {
-        // $updateData = $request->validate([
-        //     'lng' => 'required',
-        //     'lat' => 'required',
-        //     'namalokasi' => 'required',
-        //     'kategori' => 'required',
-        //     'rt' => 'required',
-        //     'rw' => 'required',
-        //     'kelurahan' => 'required',
-        //     'kecamatan' => 'required',
-        //     'pic1' => 'required',
-        //     'telp1' => 'required',
-        //     'namasurveyor' => 'required',
-        //     'tgl' => 'required',
-        //     'foto1' => 'required|file',
-        //     'foto2' => 'required|file',
-        // ]);
+        $updateData = $request->validate([
+            'lng' => 'required',
+            'lat' => 'required',
+            'namalokasi' => 'required',
+            'kategori' => 'required',
+            'rt' => 'required',
+            'rw' => 'required',
+            'kelurahan' => 'required',
+            'kecamatan' => 'required',
+            'pic1' => 'required',
+            'telp1' => 'required',
+            'namasurveyor' => 'required',
+            'tgl' => 'required',
+            'foto1' => 'required|file',
+            'foto2' => 'required|file',
+        ]);
 
-        // $extension = $request->file('foto1')->extension();
-        // $extension2 = $request->file('foto2')->extension();
-        // $random = Str::random(10);
-        // $random2 = Str::random(10);
-        // $imgName = $random . '.' . $extension;
-        // $imgName2 = $random2 . '.' . $extension2;
-
-        // Storage::putFileAs('public/images', $request->file('foto1'), $imgName);
-        // Storage::putFileAs('public/images', $request->file('foto2'), $imgName2);
-
-        // Survey::whereId($id)->update($updateData);
         $survey = Survey::findOrFail($id);
-        $survey->update($request->all());
+        $survey->lattitude = $request->lat;
+        $survey->longtitude = $request->lng;
+        $survey->namalokasi = $request->namalokasi;
+        $survey->kategori = $request->kategori;
+        $survey->rt = $request->rt;
+        $survey->rw = $request->rw;
+        $survey->kelurahan = $request->kelurahan;
+        $survey->kecamatan = $request->kecamatan;
+        $survey->pic1 = $request->pic1;
+        $survey->pic2 = $request->pic2;
+        $survey->telp1 = $request->telp1;
+        $survey->telp2 = $request->telp2;
+        $survey->namasurveyor = $request->namasurveyor;
+        $survey->tanggal = $request->tgl;
+        $survey->update();
+
+        if ($request->hasFile('foto')) {
+            $files = $request->file('foto');
+            foreach ($files as $file) {
+                $name = Str::random(10);
+                $extension = $file->getClientOriginalName();
+                $fileName = $file->getClientOriginalExtension();
+                $imgName = $fileName . $name . '.' . $extension;
+                Storage::putFileAs('public/images', $file, $imgName);
+                $foto = new foto;
+                $foto->path = $imgName;
+                $foto->survey_id = $survey->id;
+                $foto->survey()->associate($survey);
+                $foto->save();
+            }
+        }
         return redirect('/data-survey');
     }
 }
