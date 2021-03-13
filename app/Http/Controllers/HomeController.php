@@ -94,8 +94,9 @@ class HomeController extends Controller
             $files = $request->file('foto');
             foreach ($files as $file) {
                 $name = Str::random(10);
-                $extension = $file->getClientOriginalExtension();
-                $imgName = $name . '.' . $extension;
+                $extension = $file->getClientOriginalName();
+                $fileName = $file->getClientOriginalExtension();
+                $imgName = $fileName . $name . '.' . $extension;
                 Storage::putFileAs('public/images', $file, $imgName);
                 $foto = new foto;
                 $foto->path = $imgName;
