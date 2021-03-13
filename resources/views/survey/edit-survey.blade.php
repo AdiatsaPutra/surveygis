@@ -173,22 +173,30 @@
 
     }
 
+    var lattitude = document.getElementById('lat').value;
+    var longtitude = document.getElementById('lng').value;
+
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpYXRzYSIsImEiOiJja2w1eWhlOXMxcHdxMnBvZXVkcmhnaXF6In0.kZ56zJwTnSp0r5VH3cIKEg';
     var map = new mapboxgl.Map({
         container: 'map', // nama container id untuk memuat map, di sini ada pada baris ke-16
         style: 'mapbox://styles/mapbox/satellite-streets-v11', // stylesheet location, menentukan tampilan map
-        center: [110.4188121, -7.259209], // starting position [lng, lat]
+        center: [longtitude, lattitude], // starting position [lng, lat]
         zoom: 12 // starting zoom
     });
+
+    var popup = new mapboxgl.Popup()
+        .setLngLat([longtitude, lattitude])
+        .setHTML('you clicked here: <br/>' + [longtitude, lattitude]);
+
+    var marker = new mapboxgl.Marker()
+        .setLngLat([longtitude, lattitude])
+        .addTo(map)
+        .setPopup(popup);
 
     map.on('style.load', function () {
         map.on('click', function (e) {
             var coordinates = e.lngLat;
 
-            new mapboxgl.Popup()
-                .setLngLat(coordinates)
-                .setHTML('you clicked here: <br/>' + coordinates)
-                .addTo(map);
         });
     });
 

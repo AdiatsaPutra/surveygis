@@ -135,7 +135,7 @@ class HomeController extends Controller
 
     public function update(Request $request, $id)
     {
-        $updateData = $request->validate([
+        $request->validate([
             'lng' => 'required',
             'lat' => 'required',
             'namalokasi' => 'required',
@@ -148,11 +148,10 @@ class HomeController extends Controller
             'telp1' => 'required',
             'namasurveyor' => 'required',
             'tgl' => 'required',
-            'foto1' => 'required|file',
-            'foto2' => 'required|file',
         ]);
 
         $survey = Survey::findOrFail($id);
+
         $survey->lattitude = $request->lat;
         $survey->longtitude = $request->lng;
         $survey->namalokasi = $request->namalokasi;
@@ -169,21 +168,21 @@ class HomeController extends Controller
         $survey->tanggal = $request->tgl;
         $survey->update();
 
-        if ($request->hasFile('foto')) {
-            $files = $request->file('foto');
-            foreach ($files as $file) {
-                $name = Str::random(10);
-                $extension = $file->getClientOriginalName();
-                $fileName = $file->getClientOriginalExtension();
-                $imgName = $fileName . $name . '.' . $extension;
-                Storage::putFileAs('public/images', $file, $imgName);
-                $foto = new foto;
-                $foto->path = $imgName;
-                $foto->survey_id = $survey->id;
-                $foto->survey()->associate($survey);
-                $foto->save();
-            }
-        }
+        // if ($request->hasFile('foto')) {
+        //     $files = $request->file('foto');
+        //     foreach ($files as $file) {
+        //         $name = Str::random(10);
+        //         $extension = $file->getClientOriginalName();
+        //         $fileName = $file->getClientOriginalExtension();
+        //         $imgName = $fileName . $name . '.' . $extension;
+        //         Storage::putFileAs('public/images', $file, $imgName);
+        //         $foto = new foto;
+        //         $foto->path = $imgName;
+        //         $foto->survey_id = $survey->id;
+        //         $foto->survey()->associate($survey);
+        //         $foto->save();
+        //     }
+        // }
         return redirect('/data-survey');
     }
 }
