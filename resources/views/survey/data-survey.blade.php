@@ -97,7 +97,6 @@
                 @foreach($data->foto as $foto)
                 <img src="{{ url('storage/images/'.$foto->path) }}" alt="" width="100px">
                 @endforeach</td>
-
             <td class="noprint">
                 <div class="row">
                     <div class="col-3">

@@ -11,16 +11,10 @@
 
     <body>
         <div class="container d-flex justify-content-center mt-5 pb-5 border">
-
             <div class="row flex-column">
                 <div class="col">
                     @foreach($survey->foto as $foto)
-                    @php
-                    $imgpath = Storage::url('images/'.$foto->path);
-                    @endphp
-                    @endforeach
-                    @foreach($survey->foto as $foto)
-                    <img src="{{ $imgpath }}" alt="" width="100px">
+                    <img src="{{ url('storage/images/'.$foto->path) }}" alt="" width="100px">
                     @endforeach
                 </div>
                 <div class="col">

@@ -18,14 +18,9 @@
                         <p><u> Data Survey Wifi Publik {{ $survey->namalokasi }}</u></p>
                     </h3>
                 </div>
-               @foreach($survey->foto as $foto)
-                    @php
-                    $imgpath = Storage::url('images/'.$foto->path);
-                    @endphp
-                    @endforeach
-                    @foreach($survey->foto as $foto)
-                    <img src="{{ $imgpath }}" alt="" width="100px">
-                    @endforeach
+                @foreach($survey->foto as $foto)
+                <img src="{{ url('storage/images/'.$foto->path) }}" alt="" width="100px">
+                @endforeach
                 <table>
                     <tr>
                         <th style="min-width: 180px;">Nama Lokasi</th>
