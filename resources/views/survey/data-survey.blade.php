@@ -94,7 +94,9 @@
             <td class="lattitude_col">{{ $data->lattitude }}</td>
             <td class="longtitude_col">{{ $data->longtitude }}</td>
             <td class="img1_col">
-                <img src="{{ url('storage/images/'.$data->fotoFirst->path) }}" alt="" width="100px">
+                <a href="{{ url('storage/images/'.$data->fotoFirst->path) }}" download>
+                    <img src="{{ url('storage/images/'.$data->fotoFirst->path) }}" alt="" width="100px">
+                </a>
             </td>
             <td class="noprint">
                 <div class="row">
