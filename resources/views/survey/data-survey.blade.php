@@ -5,10 +5,16 @@
 <div class="container-fluid mt-5 mb-5" style="overflow-x:auto;">
     <div class="noprint">
         <div class="row mb-3">
-            <div class="col-3">
-                <a class="btn btn-primary" href="{{ URL::to('/download-data') }} ">Export to PDF</a>
+            <div class="col-md-11">
+                <a class="btn btn-primary" href="{{ URL::to('/download-pdf') }} "type="submit">Export to PDF</a>
                 <a  href="{{ route('home') }}" class="btn btn-danger" type="submit">Tambah Data</a>
+                <a  class="btn btn-secondary" type="submit" onclick="window.print()">Cetak</a>
+                 
             </div>
+            <div class="col-md-1">
+                <a class="btn btn-dark" href="{{ URL::to('/pwa') }} "type="submit">Setting to PWA</a>  
+            </div>
+            
         </div>
         <p>Perlihatkan Sembunyikan Kolom</p>
         <div class="row mt-1 mb-1">
