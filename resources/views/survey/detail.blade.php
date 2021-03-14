@@ -10,14 +10,9 @@
     </head>
 
     <body>
-        <div class="container d-flex justify-content-center mt-5 pb-5 border">
-            <div class="row flex-column">
-                <div class="col">
-                    @foreach($survey->foto as $foto)
-                    <img src="{{ url('storage/images/'.$foto->path) }}" alt="" width="100px">
-                    @endforeach
-                </div>
-                <div class="col">
+        <div class="container d-flex justify-content-center mt-5 p-5 border">
+            <div class="row">
+                <div class="col-4">
                     <table>
                         <tr>
                             <th style="min-width: 180px;">Nama Lokasi</th>
@@ -80,6 +75,11 @@
                         <button class="btn btn-primary mt-3"
                             onclick="window.onload = function() { window.print(); }">Cetak</button>
                     </form>
+                </div>
+                <div class="col-8">
+                    @foreach($survey->foto as $foto)
+                    <img src="{{ url('storage/images/'.$foto->path) }}" alt="" width="180px">
+                    @endforeach
                 </div>
             </div>
 

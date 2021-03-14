@@ -18,4 +18,9 @@ class Survey extends Model
     {
         return $this->hasMany(Foto::class);
     }
+
+    public function fotoFirst()
+    {
+        return $this->hasOne(Foto::class);
+    }
 }

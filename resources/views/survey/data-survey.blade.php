@@ -94,9 +94,8 @@
             <td class="lattitude_col">{{ $data->lattitude }}</td>
             <td class="longtitude_col">{{ $data->longtitude }}</td>
             <td class="img1_col">
-                @foreach($data->foto as $foto)
-                <img src="{{ url('storage/images/'.$foto->path) }}" alt="" width="100px">
-                @endforeach</td>
+                <img src="{{ url('storage/images/'.$data->fotoFirst->path) }}" alt="" width="100px">
+            </td>
             <td class="noprint">
                 <div class="row">
                     <div class="col-3">
