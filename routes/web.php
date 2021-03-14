@@ -33,7 +33,7 @@ Route::get('/cetak/{id}', [App\Http\Controllers\HomeController::class, 'print'])
 // Route::get('/laporan-pdf', [App\Http\Controllers\HomeController::class, 'generatePDF']);
 
 
-Route::get('download-data/', [App\Http\Controllers\HomeController::class, 'generatePDF']);
+Route::get('download-data/', [App\Http\Controllers\HomeController::class, 'printpdf']);
 Route::get('dropdownlist/kelurahan/{id}', [HomeController::class, 'kelurahan']);
 
 \PWA::routes();

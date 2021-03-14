@@ -6,10 +6,8 @@
     <div class="noprint">
         <div class="row mb-3">
             <div class="col-3">
-                <a class="btn btn-primary" href="{{ URL::to('/download-data') }}">Export to PDF</a>
-            </div>
-            <div class="col-6">
-                <a id="btntambah" href="{{ route('home') }}" class="btn btn-danger" type="submit">Tambah Data</a>
+                <a class="btn btn-primary" href="{{ URL::to('/download-data') }} ">Export to PDF</a>
+                <a  href="{{ route('home') }}" class="btn btn-danger" type="submit">Tambah Data</a>
             </div>
         </div>
         <p>Perlihatkan Sembunyikan Kolom</p>

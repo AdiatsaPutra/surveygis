@@ -7,7 +7,7 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
 
-    <body>
+    <body onload="window.print()">
         <div id="tabledownload">
             <table class="table table-bordered">
                 <thead>
@@ -38,13 +38,7 @@
                         <td class="pic_1_col">{{ $data->pic1 }}</td>
                         <td class="no_telp_pic_1_col">{{ $data->telp1 }}</td>
                         <td class="pic_2_col">{{ $data->pic2 }}</td>
-                        <td class="img1_col">
-                            @foreach ($data->foto as $foto)
-
-                            <img src="{{ url('storage/images/'.$foto->path)}}" alt="" width="100px">
-
-                            @endforeach
-                        </td>
+                        
 
                     </tr>
                     @endforeach
@@ -70,6 +64,13 @@
                         <td class="tanggal_col">{{ $data->tanggal }}</td>
                         <td class="lattitude_col">{{ $data->lattitude }}</td>
                         <td class="longtitude_col">{{ $data->longtitude }}</td>
+                        <td class="img1_col">
+                            @foreach ($data->foto as $foto)
+
+                            <img src="{{ url('storage/images/'.$foto->path)}}" alt="" width="100px">
+
+                            @endforeach
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -86,6 +87,12 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous">
+        window.print();
+
+    </script>
     </body>
 
 </html>

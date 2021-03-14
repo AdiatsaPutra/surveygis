@@ -70,7 +70,7 @@
                                 <option value="{{ $key }}">{{ $value }}</option>
                                 @endforeach
                             </select>
-                            <input type="hidden" name="kecamatan" value="{{ $value }}">
+                            <input type="hidden" name="kecamatan" value="{{$value}}">
                         </div>
                     </div>
                     <div class="col-sm-6">

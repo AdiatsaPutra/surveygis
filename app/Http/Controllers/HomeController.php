@@ -41,13 +41,13 @@ class HomeController extends Controller
         return json_encode($kelurahan);
     }
 
-    public function generatePDF(Request $request)
-    {
+    // public function generatePDF(Request $request)
+    // {
 
-        $survey = Survey::all();
-        $pdf = PDF::loadView('survey.download-data', compact('survey'))->setPaper('a4', 'landscape');
-        return $pdf->stream();
-    }
+    //     $survey = Survey::all();
+    //     $pdf = PDF::loadView('survey.download-data', compact('survey'))->setPaper('a4', 'landscape');
+    //     return $pdf->stream();
+    // }
 
     /**
      * Show the application dashboard.
@@ -141,6 +141,14 @@ class HomeController extends Controller
         $survey = Survey::findOrFail($id);
         return view('survey.cetak', compact('survey'));
     }
+
+    public function printpdf()
+    {
+        $survey = Survey::all();
+        return view('survey.download-data', compact('survey'));
+    }
+
+
 
     public function update(Request $request, $id)
     {
