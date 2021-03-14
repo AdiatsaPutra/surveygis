@@ -12,7 +12,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <title>Laravel</title>
-    @laravelPWA
+    @PWA
   </head>
 
   <body>
@@ -51,7 +51,7 @@
         <div class=" text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
           <a class="text-white">Build With Love by UMY Intern Team</a>
           <small><a href='https://www.freepik.com/vectors/technology'>Technology vector created by stories -
-            www.freepik.com</a>-</small>
+              www.freepik.com</a>-</small>
         </div>
     </footer>
 
@@ -66,6 +66,36 @@
       AOS.init({
         duration: 1000,
       });
+      var pwaInstallBtn = document.getElementById('pwa-install');
+                let isInitiatePwa = false;
+                pwaInstallBtn.style.display = 'none';
+                window.addEventListener('beforeinstallprompt', (e) => {
+                  // Prevent the mini-infobar from appearing on mobile
+                  e.preventDefault();
+                  window.deferredPrompt = e;
+                  pwaInstallBtn.style.display = 'block';
+                });
+
+                pwaInstallBtn.addEventListener('click', (e) => {
+                  // Show the install prompt
+                  const deferredPrompt = window.deferredPrompt;
+                  deferredPrompt.prompt();
+                  // Wait for the user to respond to the prompt
+                  deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                      console.log('User accepted the install prompt');
+                    } else {
+                      console.log('User dismissed the install prompt');
+                    }
+                  });
+                });
+
+                window.addEventListener('appinstalled', (evt) => {
+                    pwaInstallBtn.style.display = 'none'
+                    window.deferredPrompt = null
+                  // Log install to analytics
+                  // console.log('INSTALL: Success');
+                });
     </script>
 
   </body>
