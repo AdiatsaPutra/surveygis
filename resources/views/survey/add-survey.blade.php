@@ -52,13 +52,13 @@
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label class="form-label">RT</label>
-                            <input type="text" class="form-control" placeholder="Masukkan RT" name="rt">
+                            <input type="number" class="form-control" placeholder="Masukkan RT" name="rt">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label class="form-label">RW</label>
-                            <input type="text" class="form-control" placeholder="Masukkan RW" name="rw">
+                            <input type="number" class="form-control" placeholder="Masukkan RW" name="rw">
                         </div>
                     </div>
                     <div class="col-sm-6">
