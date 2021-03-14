@@ -61,16 +61,23 @@
                             <input type="text" class="form-control" placeholder="Masukkan RW" name="rw">
                         </div>
                     </div>
-                    <div class="col-sm-12">
-                        <div class="mb-1">
-                            <label class="form-label">Kelurahan</label>
-                            <input type="text" class="form-control" placeholder=" Masukan Kelurahan" name="kelurahan">
+                    <div class="col-sm-6">
+                        <div class="form-group mb-1">
+                            <label for="kecamatan">Pilih Kecamatan:</label>
+                            <select name="kecamatan" class="form-control">
+                                <option value="">--- Pilih Kecamatan ---</option>
+                                @foreach ($countries as $key => $value)
+                                <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
-                    <div class="col-sm-12">
-                        <div class="mb-1">
-                            <label class="form-label">Kecamatan</label>
-                            <input type="text" class="form-control" placeholder=" Masukan Kecamatan" name="kecamatan">
+                    <div class="col-sm-6">
+                        <div class="form-group mb-1">
+                            <label for="kelurahan">Pilih Kelurahan:</label>
+                            <select name="kelurahan" class="form-control">
+                                <option>--Kelurahan--</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -129,6 +136,32 @@
 
 @push('scripts')
 <script>
+    jQuery(document).ready(function ()
+      {
+              jQuery('select[name="kecamatan"]').on('change',function(){
+                 var kecamatanID = jQuery(this).val();
+                 if(kecamatanID)
+                 {
+                    jQuery.ajax({
+                       url : 'dropdownlist/kelurahan/' +kecamatanID,
+                       type : "GET",
+                       dataType : "json",
+                       success:function(data)
+                       {
+                          jQuery('select[name="kelurahan"]').empty();
+                          jQuery.each(data, function(key,value){
+                             $('select[name="kelurahan"]').append('<option value="'+ key +'">'+ value +'</option>');
+                          });
+                       }
+                    });
+                 }
+                 else
+                 {
+                    $('select[name="kelurahan"]').empty();
+                 }
+              });
+      });
+      
     function required() {
         var namalokasi = document.forms["myForm"]["namalokasi"].value;
         if (namalokasi == "") {

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Foto;
+use App\Models\Kecamatan;
+use App\Models\Kelurahan;
 use App\Models\Survey;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +31,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('survey.add-survey');
+        $countries = Kecamatan::pluck('name', 'id');
+        return view('survey.add-survey', compact('countries'));
+    }
+
+    public function kelurahan($id)
+    {
+        $kelurahan = Kelurahan::where("kecamatan_id", $id)->pluck("nama", "id");
+        return json_encode($kelurahan);
     }
 
     public function generatePDF(Request $request)
