@@ -31,8 +31,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $countries = Kecamatan::pluck('name', 'id');
-        return view('survey.add-survey', compact('countries'));
+        $kecamatan = Kecamatan::pluck('name', 'id');
+        return view('survey.add-survey', compact('kecamatan'));
     }
 
     public function kelurahan($id)

@@ -66,18 +66,20 @@
                             <label for="kecamatan">Pilih Kecamatan:</label>
                             <select name="kecamatan" class="form-control">
                                 <option value="">--- Pilih Kecamatan ---</option>
-                                @foreach ($countries as $key => $value)
+                                @foreach ($kecamatan as $key => $value)
                                 <option value="{{ $key }}">{{ $value }}</option>
                                 @endforeach
                             </select>
+                            <input type="hidden" name="kecamatan" value="{{ $value }}">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group mb-1">
                             <label for="kelurahan">Pilih Kelurahan:</label>
                             <select name="kelurahan" class="form-control">
-                                <option>--Kelurahan--</option>
+                                <option id="kelurahan">--Kelurahan--</option>
                             </select>
+                            <input type="hidden" name="kelurahan" id="kelurahan">
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -151,6 +153,7 @@
                           jQuery('select[name="kelurahan"]').empty();
                           jQuery.each(data, function(key,value){
                              $('select[name="kelurahan"]').append('<option value="'+ key +'">'+ value +'</option>');
+                             document.getElementById('kelurahan').value = value;
                           });
                        }
                     });
@@ -240,14 +243,6 @@
 
     });
 
-    function preview() {
-        frame.src = URL.createObjectURL(event.target.files[0]);
-    }
-
-    function preview2() {
-        frame2.src = URL.createObjectURL(event.target.files[0]);
-    }
-
     var tanggallengkap = new String();
     var namahari = ("Minggu Senin Selasa Rabu Kamis Jumat Sabtu");
     namahari = namahari.split(" ");
@@ -261,21 +256,6 @@
     tanggallengkap = namahari[hari] + ", " + tanggal + " " + namabulan[bulan] + " " + tahun;
     console.log(tanggallengkap);
     document.getElementById('tgl').value = tanggallengkap;
-
-    function preview() {
-        frame.src = URL.createObjectURL(event.target.files[0]);
-        frame2.src = URL.createObjectURL(event.target.files[1]);
-        frame3.src = URL.createObjectURL(event.target.files[2]);
-        frame4.src = URL.createObjectURL(event.target.files[3]);
-        frame5.src = URL.createObjectURL(event.target.files[4]);
-        frame6.src = URL.createObjectURL(event.target.files[5]);
-        frame7.src = URL.createObjectURL(event.target.files[6]);
-        frame8.src = URL.createObjectURL(event.target.files[7]);
-        frame9.src = URL.createObjectURL(event.target.files[8]);
-        frame10.src = URL.createObjectURL(event.target.files[9]);
-
-        // ini komen 
-    }
 
 </script>
 @endpush
