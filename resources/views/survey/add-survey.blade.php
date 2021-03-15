@@ -143,9 +143,10 @@
     document.getElementById("kcmtn").value = datakcmtn;
     }
     function getkelurahan(sel){
-    
+    var datakelur = sel.options[sel.selectedIndex].text;
+    document.getElementById("klrhn").value = datakelur;
     }
-    // var kelurhn = document.getElementById('kelurahann').options[selectedIndex].text;
+
 
     jQuery(document).ready(function ()
       {
