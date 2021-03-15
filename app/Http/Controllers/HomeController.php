@@ -67,6 +67,8 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
+
         $request->validate([
             'lng' => 'required',
             'lat' => 'required',

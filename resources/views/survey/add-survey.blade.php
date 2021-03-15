@@ -64,22 +64,22 @@
                     <div class="col-sm-6">
                         <div class="form-group mb-1">
                             <label for="kecamatan">Pilih Kecamatan:</label>
-                            <select name="kecamatan" class="form-select">
+                            <select name="kecamatan" class="form-select" onChange="myNewFunction(this);">
                                 <option value="">-- Pilih Kecamatan --</option>
                                 @foreach ($kecamatan as $key => $value)
                                 <option value="{{ $key }}">{{ $value }}</option>
                                 @endforeach
                             </select>
-                            <input type="hidden" name="kecamatan" value="{{$value}}">
+                            <input type="hidden" name="kecamatan" id="kcmtn">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group mb-1">
                             <label for="kelurahan">Pilih Kelurahan:</label>
-                            <select name="kelurahan" class="form-select">
+                            <select name="kelurahan" class="form-select" onChange="getkelurahan(this);" id="kelurahann">
                                 <option id="kelurahan">-- Pilih Kelurahan --</option>
                             </select>
-                            <input type="hidden" name="kelurahan" id="kelurahan">
+                            <input type="hidden" name="kelurahan" id="klrhn">
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -138,6 +138,15 @@
 
 @push('scripts')
 <script>
+    function myNewFunction(sel) {
+    var datakcmtn = sel.options[sel.selectedIndex].text;
+    document.getElementById("kcmtn").value = datakcmtn;
+    }
+    function getkelurahan(sel){
+    
+    }
+    // var kelurhn = document.getElementById('kelurahann').options[selectedIndex].text;
+
     jQuery(document).ready(function ()
       {
               jQuery('select[name="kecamatan"]').on('change',function(){
@@ -153,7 +162,7 @@
                           jQuery('select[name="kelurahan"]').empty();
                           jQuery.each(data, function(key,value){
                              $('select[name="kelurahan"]').append('<option value="'+ key +'">'+ value +'</option>');
-                             document.getElementById('kelurahan').value = value;
+                                document.getElementById("klrhn").value = value;
                           });
                        }
                     });
@@ -242,7 +251,6 @@
         document.getElementById('lng').value = longtitude;
 
     });
-
     var tanggallengkap = new String();
     var namahari = ("Minggu Senin Selasa Rabu Kamis Jumat Sabtu");
     namahari = namahari.split(" ");
