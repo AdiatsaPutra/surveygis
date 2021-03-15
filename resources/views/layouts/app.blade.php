@@ -71,7 +71,7 @@
                 {{ isset($slot) ? $slot : null }}
             </main>
 
-            <footer class="noprint bg-dark text-white text-md-start">
+            <!-- <footer class="noprint bg-dark text-white text-md-start">
                 <div class="container p-4">
                     <div class="row">
                         <div class="">
@@ -90,7 +90,7 @@
                     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
                         <a class="text-white">Build With Love by UMY Intern Team</a>
                     </div>
-            </footer>
+            </footer> -->
         </div>
         @livewireScripts
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
