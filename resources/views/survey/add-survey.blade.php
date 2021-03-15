@@ -64,8 +64,8 @@
                     <div class="col-sm-6">
                         <div class="form-group mb-1">
                             <label for="kecamatan">Pilih Kecamatan:</label>
-                            <select name="kecamatan" class="form-control">
-                                <option value="">--- Pilih Kecamatan ---</option>
+                            <select name="kecamatan" class="form-select">
+                                <option value="">-- Pilih Kecamatan --</option>
                                 @foreach ($kecamatan as $key => $value)
                                 <option value="{{ $key }}">{{ $value }}</option>
                                 @endforeach
@@ -76,8 +76,8 @@
                     <div class="col-sm-6">
                         <div class="form-group mb-1">
                             <label for="kelurahan">Pilih Kelurahan:</label>
-                            <select name="kelurahan" class="form-control">
-                                <option id="kelurahan">--Kelurahan--</option>
+                            <select name="kelurahan" class="form-select">
+                                <option id="kelurahan">-- Pilih Kelurahan --</option>
                             </select>
                             <input type="hidden" name="kelurahan" id="kelurahan">
                         </div>
