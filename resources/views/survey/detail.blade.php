@@ -79,7 +79,7 @@
                 <div class="col-8">
                     @foreach($survey->foto as $foto)
                     <a href="{{ url('storage/images/'.$foto->path) }}" download>
-                        <img src="{{ url('storage/images/'.$foto->path) }}" alt="" width="180px">
+                        <img src="{{ url('storage/images/'.$foto->path) }}" alt="" width="300px">
                     </a>
                     @endforeach
                 </div>
