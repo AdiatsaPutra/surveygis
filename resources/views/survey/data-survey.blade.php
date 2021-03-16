@@ -18,23 +18,21 @@
         <p>Perlihatkan Sembunyikan Kolom</p>
         <div class="row mt-1 mb-1">
             <div class="col">
-                <input type="checkbox" value="hide" id="name_col" onchange="hide_show_table(this.id);">Name
-                <input type="checkbox" value="hide" id="kategori_col" onchange="hide_show_table(this.id);">Kategori
-                <input type="checkbox" value="hide" id="rt_col" onchange="hide_show_table(this.id);">RT
-                <input type="checkbox" value="hide" id="rw_col" onchange="hide_show_table(this.id);">RW
-                <input type="checkbox" value="hide" id="kelurahan_col" onchange="hide_show_table(this.id);">Kelurahan
-                <input type="checkbox" value="hide" id="kecamatan_col" onchange="hide_show_table(this.id);">Kecamatan
-                <input type="checkbox" value="hide" id="pic_1_col" onchange="hide_show_table(this.id);">PIC 1
-                <input type="checkbox" value="hide" id="no_telp_pic_1_col" onchange="hide_show_table(this.id);">Telp PIC
-                1
-                <input type="checkbox" value="hide" id="pic_2_col" onchange="hide_show_table(this.id);">PIC 2
-                <input type="checkbox" value="hide" id="no_telp_pic_2_col" onchange="hide_show_table(this.id);">Telp PIC
-                2
-                <input type="checkbox" value="hide" id="surveyor_col" onchange="hide_show_table(this.id);">Surveyor
-                <input type="checkbox" value="hide" id="tanggal_col" onchange="hide_show_table(this.id);">Tanggal
-                <input type="checkbox" value="hide" id="lattitude_col" onchange="hide_show_table(this.id);">Lattitude
-                <input type="checkbox" value="hide" id="longtitude_col" onchange="hide_show_table(this.id);">Longtitude
-                <input type="checkbox" value="hide" id="img1_col" onchange="hide_show_table(this.id);">Gambar1
+                <input type="checkbox" checked="checked" value="hide" id="name_col" onchange="hide_show_table(this.id);">Name
+                <input type="checkbox" checked="checked" value="hide" id="kategori_col" onchange="hide_show_table(this.id);">Kategori
+                <input type="checkbox" checked="checked" value="hide" id="rt_col" onchange="hide_show_table(this.id);">RT
+                <input type="checkbox" checked="checked" value="hide" id="rw_col" onchange="hide_show_table(this.id);">RW
+                <input type="checkbox" checked="checked" value="hide" id="kelurahan_col" onchange="hide_show_table(this.id);">Kelurahan
+                <input type="checkbox" checked="checked" value="hide" id="kecamatan_col" onchange="hide_show_table(this.id);">Kecamatan
+                <input type="checkbox" checked="checked" value="hide" id="pic_1_col" onchange="hide_show_table(this.id);">PIC 1
+                <input type="checkbox" checked="checked" value="hide" id="no_telp_pic_1_col" onchange="hide_show_table(this.id);">Telp PIC 1
+                <input type="checkbox" checked="checked" value="hide" id="pic_2_col" onchange="hide_show_table(this.id);">PIC 2
+                <input type="checkbox" checked="checked" value="hide" id="no_telp_pic_2_col" onchange="hide_show_table(this.id);">Telp PIC 2
+                <input type="checkbox" checked="checked" value="hide" id="surveyor_col" onchange="hide_show_table(this.id);">Surveyor
+                <input type="checkbox" checked="checked" value="hide" id="tanggal_col" onchange="hide_show_table(this.id);">Tanggal
+                <input type="checkbox" checked="checked" value="hide" id="lattitude_col" onchange="hide_show_table(this.id);">Lattitude
+                <input type="checkbox" checked="checked" value="hide" id="longtitude_col" onchange="hide_show_table(this.id);">Longtitude
+                <input type="checkbox" checked="checked" value="hide" id="img1_col" onchange="hide_show_table(this.id);">Gambar1
 
             </div>
         </div>
