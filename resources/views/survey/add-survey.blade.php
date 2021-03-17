@@ -121,7 +121,7 @@
                     <div class="col-sm-12">
                         <div class="mb-1">
                             <label class="form-label">Masukkan Foto</label>
-                            <input type="file" class="form-control" id="foto" name="foto[]" multiple>
+                            <input type="file" class="form-control" id="foto" name="foto[]" multiple required>
                         </div>
                     </div>
                     <div class="col-sm-12 mt-3">

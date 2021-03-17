@@ -95,9 +95,11 @@
             <td class="lattitude_col">{{ $data->lattitude }}</td>
             <td class="longtitude_col">{{ $data->longtitude }}</td>
             <td class="img1_col">
+                @foreach($data->foto->take(1) as $foto)
                 <a href="{{ url('storage/images/'.$data->fotoFirst->path) }}" download>
                     <img src="{{ url('storage/images/'.$data->fotoFirst->path) }}" alt="" width="100px">
                 </a>
+                @endforeach
             </td>
             <td class="noprint">
                 <div class="row">
