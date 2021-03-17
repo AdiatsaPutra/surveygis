@@ -77,8 +77,8 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col">
-                        @foreach($survey->foto as $foto)
-                        <img src="{{ url('storage/images/'.$foto->path) }}" alt="" width="250px">
+                        @foreach($survey->foto->take(4) as $foto)
+                        <img src="{{ url('storage/images/'.$foto->path)}}" alt="" width="250px">
                         @endforeach
                         </div>
                     </div>
