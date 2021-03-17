@@ -61,13 +61,13 @@ class HomeController extends Controller
                 ->orWhere('kategori', 'like', "%{$request->keyword}%")
                 ->orWhere('kelurahan', 'like', "%{$request->keyword}%")
                 ->orWhere('rw', 'like', "%{$request->keyword}%");
-        })->paginate(5);
+        })->where('namasurveyor', 'like', auth()->user()->name)->paginate(5);
         return view('survey.data-survey', compact('survey'));
     }
 
     public function store(Request $request)
     {
-       
+
 
         $request->validate([
             'lng' => 'required',
