@@ -22,6 +22,17 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    public function authenticated(Request $request, $user)
+    {
+        if (!$user) {
+            return view('auth.login');
+        } else if ($user->hasRole('admin')) {
+            return redirect()->route('admin.page');
+        }
+
+        return redirect()->route('home');
+    }
+
     /**
      * Where to redirect users after login.
      *
@@ -37,14 +48,5 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-    }
-
-    public function authenticated(Request $request, $user)
-    {
-        if ($user->hasRole('admin')) {
-            return redirect()->route('admin.page');
-        }
-
-        return redirect()->route('home');
     }
 }
