@@ -8,12 +8,42 @@
          <div class="col-md-11">
             <a class="btn btn-primary" href="{{ URL::to('/download-data') }}">Export to PDF</a>
             <a class="btn btn-secondary" type="submit" onclick="window.print()">Cetak</a>
+            <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Tambah User</a>
          </div>
          <div class="col-md-1">
             <a class="btn btn-primary" href="{{ URL::to('/pwa') }} " type="submit">Setting to PWA</a>
          </div>
-
+      
       </div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+               <form>
+                 <div class="mb-3">
+                   <label for="recipient-name" class="col-form-label">Name:</label>
+                   <input type="text" class="form-control" id="recipient-name">
+                 </div>
+                 <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Email:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Password:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+               </form>
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-primary">Submit</button>
+             </div>
+           </div>
+         </div>
+       </div>
       <p>Klik Untuk Sembunyikan kolom</p>
       <div class="row mt-1 mb-1">
          <div class="col">

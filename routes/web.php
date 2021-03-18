@@ -23,8 +23,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin', [AdminControler::class, 'index'])->middleware('role:admin')->name('admin.page');
-
+Route::get('/admin-page', [AdminControler::class, 'index'])->middleware('role:admin')->name('admin.page');
 Route::get('/home', [HomeController::class, 'index'])->middleware('role:user')->name('home');
 Route::get('/data-survey', [HomeController::class, 'data'])->middleware('role:user');
 Route::post('/add-data', [HomeController::class, 'store'])->middleware('role:user');
