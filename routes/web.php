@@ -23,22 +23,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('/data-survey', [App\Http\Controllers\HomeController::class, 'data']);
-// Route::post('/add-data', [App\Http\Controllers\HomeController::class, 'store']);
-// Route::delete('/delete/{id}', [App\Http\Controllers\HomeController::class, 'destroy']);
-// Route::get('/edit-data/{id}', [App\Http\Controllers\HomeController::class, 'edit']);
-// Route::put('/edit-data/{id}', [App\Http\Controllers\HomeController::class, 'update']);
-// Route::get('/detail/{id}', [App\Http\Controllers\HomeController::class, 'show']);
-// Route::get('/cetak/{id}', [App\Http\Controllers\HomeController::class, 'print']);
-
-// Route::get('download-data/', [App\Http\Controllers\HomeController::class, 'printpdf']);
-// Route::get('dropdownlist/kelurahan/{id}', [HomeController::class, 'kelurahan']);
-
 Route::get('admin-page', [AdminControler::class, 'index'])->middleware('role:admin')->name('admin.page');
 
-Route::get('user-page', function () {
-    return 'Halaman untuk User';
-})->middleware('role:user')->name('user.page');
+Route::get('home', [HomeController::class, 'index'])->middleware('role:user')->name('home');
+Route::get('/data-survey', [HomeController::class, 'data'])->middleware('role:user');
+Route::post('/add-data', [HomeController::class, 'store'])->middleware('role:user');
+Route::delete('/delete/{id}', [HomeController::class, 'destroy'])->middleware('role:user');
+Route::get('/edit-data/{id}', [HomeController::class, 'edit'])->middleware('role:user');
+Route::put('/edit-data/{id}', [HomeController::class, 'update'])->middleware('role:user');
+Route::get('/detail/{id}', [HomeController::class, 'show'])->middleware('role:user');
+Route::get('/cetak/{id}', [HomeController::class, 'print'])->middleware('role:user');
+
+Route::get('download-data/', [HomeController::class, 'printpdf'])->middleware('role:user');
+Route::get('dropdownlist/kelurahan/{id}', [HomeController::class, 'kelurahan'])->middleware('role:user');
 
 \PWA::routes();
