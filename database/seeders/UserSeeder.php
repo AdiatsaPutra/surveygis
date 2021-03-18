@@ -29,5 +29,13 @@ class UserSeeder extends Seeder
         ]);
 
         $user->assignRole('user');
+
+        $user = User::create([
+            'name' => 'Adi',
+            'email' => 'adi@lifemedia.com',
+            'password' => bcrypt('12345678'),
+        ]);
+
+        $user->assignRole('user');
     }
 }
