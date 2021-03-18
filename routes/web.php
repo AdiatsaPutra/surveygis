@@ -36,4 +36,12 @@ Route::get('/cetak/{id}', [App\Http\Controllers\HomeController::class, 'print'])
 Route::get('download-data/', [App\Http\Controllers\HomeController::class, 'printpdf']);
 Route::get('dropdownlist/kelurahan/{id}', [HomeController::class, 'kelurahan']);
 
+Route::get('admin-page', function () {
+    return 'Halaman untuk Admin';
+})->middleware('role:admin')->name('admin.page');
+
+Route::get('user-page', function () {
+    return 'Halaman untuk User';
+})->middleware('role:user')->name('user.page');
+
 \PWA::routes();
