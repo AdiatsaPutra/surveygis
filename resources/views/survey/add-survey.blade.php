@@ -14,28 +14,28 @@
                         <div class="mb-1">
                             <label for="lattitude" class="form-label">Lattitude</label>
                             <input type="text" class="form-control" placeholder="Masukkan Lattitude" name="lat"
-                                id="lat">
+                                id="lat" required>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label class="form-label">Longtitude</label>
                             <input type="text" class="form-control" placeholder="Masukkan Longtitude" name="lng"
-                                id="lng">
+                                id="lng" required>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-1">
                             <label class="form-label">Nama Lokasi</label>
                             <input type="text" class="form-control" placeholder=" Masukan Nama lokasi"
-                                name="namalokasi">
+                                name="namalokasi" required>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <label class="form-label">Kategori</label>
                         <div class="mb-1">
                             <div class="input-group">
-                                <select class="form-select" aria-label="Default select example" name="kategori">
+                                <select class="form-select" aria-label="Default select example" name="kategori" required>
                                     <option selected>-- Pilih Kategori --</option>
                                     <option value="Balai RW">Balai RW</option>
                                     <option value="Balai RK">Balai RK</option>
@@ -52,25 +52,25 @@
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label class="form-label">RT</label>
-                            <input type="number" class="form-control" placeholder="Masukkan RT" name="rt">
+                            <input type="number" class="form-control" placeholder="Masukkan RT" name="rt" required>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label class="form-label">RW</label>
-                            <input type="number" class="form-control" placeholder="Masukkan RW" name="rw">
+                            <input type="number" class="form-control" placeholder="Masukkan RW" name="rw" required>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group mb-1">
                             <label for="kecamatan">Pilih Kecamatan:</label>
-                            <select name="kecamatan" class="form-select" onChange="myNewFunction(this);">
+                            <select name="kecamatan" class="form-select" onChange="myNewFunction(this);" >
                                 <option value="">-- Pilih Kecamatan --</option>
                                 @foreach ($kecamatan as $key => $value)
                                 <option value="{{ $key }}">{{ $value }}</option>
                                 @endforeach
                             </select>
-                            <input type="hidden" name="kecamatan" id="kcmtn">
+                            <input type="hidden" name="kecamatan" id="kcmtn" required>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -79,24 +79,24 @@
                             <select name="kelurahan" class="form-select" onChange="getkelurahan(this);" id="kelurahann">
                                 <option id="kelurahan">-- Pilih Kelurahan --</option>
                             </select>
-                            <input type="hidden" name="kelurahan" id="klrhn">
+                            <input type="hidden" name="kelurahan" id="klrhn" required>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label class="form-label">PIC 1</label>
-                            <input type="text" class="form-control" placeholder="Masukkan PIC 1" name="pic1">
+                            <input type="text" class="form-control" placeholder="Masukkan PIC 1" name="pic1" required>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-1">
                             <label class="form-label">Telepon</label>
-                            <input type="text" class="form-control" placeholder="Masukan Telepon" name="telp1">
+                            <input type="text" class="form-control" placeholder="Masukan Telepon" name="telp1" required>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-1">
-                            <label class="form-label">PIC 2</label>
+                            <label class="form-label">PIC 2 (Optional)</label>
                             <input type="text" class="form-control" placeholder="Masukkan PIC 2" name="pic2">
                         </div>
                     </div>
@@ -175,44 +175,6 @@
               });
       });
       
-    function required() {
-        var namalokasi = document.forms["myForm"]["namalokasi"].value;
-        if (namalokasi == "") {
-            alert("Nama Lokasi Tidak Boleh Kosong!");
-            return false;
-        }
-        var rt = document.forms["myForm"]["rt"].value;
-        if (rt == "") {
-            alert("RT Tidak Boleh Kosong!");
-            return false;
-        }
-        var rw = document.forms["myForm"]["rw"].value;
-        if (rw == "") {
-            alert("RW Tidak Boleh Kosong!");
-            return false;
-        }
-        var kelurahan = document.forms["myForm"]["kelurahan"].value;
-        if (kelurahan == "") {
-            alert("Kelurahan Tidak Boleh Kosong!");
-            return false;
-        }
-        var kecamatan = document.forms["myForm"]["kecamatan"].value;
-        if (kecamatan == "") {
-            alert("Kecamatan Tidak Boleh Kosong!");
-            return false;
-        }
-        var pic1 = document.forms["myForm"]["pic1"].value;
-        if (pic1 == "") {
-            alert("Pic1 Tidak Boleh Kosong!");
-            return false;
-        }
-        var telp1 = document.forms["myForm"]["telp1"].value;
-        if (telp1 == "") {
-            alert("Nomor Telepon Tidak Boleh Kosong!");
-            return false;
-        }
-
-    }
 
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpYXRzYSIsImEiOiJja2w1eWhlOXMxcHdxMnBvZXVkcmhnaXF6In0.kZ56zJwTnSp0r5VH3cIKEg';
     var map = new mapboxgl.Map({
