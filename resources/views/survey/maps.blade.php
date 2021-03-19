@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="map-location container-fluid">
-    <div class="row mt-5 mb-3">
+    <div class="col mt-5 mb-3">
         <h3 class="font-weight-bold">Data Lokasi</h3>
     </div>
-    <div class="row">
+    <div class="centre">
         
         <div class="col-md-8">
             <div id='map' style='width: 100%; height: 80vh;'></div>
@@ -31,6 +31,8 @@
     }));
 
     map.addControl(new mapboxgl.NavigationControl());
+
+    
 
 </script>
 @endpush
