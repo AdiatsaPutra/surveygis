@@ -36,4 +36,6 @@ Route::get('/cetak/{id}', [HomeController::class, 'print'])->middleware('role:us
 Route::get('download-data/', [HomeController::class, 'printpdf'])->middleware('role:user');
 Route::get('dropdownlist/kelurahan/{id}', [HomeController::class, 'kelurahan'])->middleware('role:user');
 
+Route::get('exportpdf/', [HomeController::class, 'printpdf'])->middleware('role:admin');
+
 \PWA::routes();

@@ -6,7 +6,7 @@
    <div class="noprint">
       <div class="row mb-3">
          <div class="col-md-11">
-            <a class="btn btn-primary" href="{{ URL::to('/download-data') }}">Export to PDF</a>
+            <a class="btn btn-primary" href="{{ URL::to('/exportpdf') }}">Export to PDF</a>
             <a class="btn btn-secondary" type="submit" onclick="window.print()">Cetak</a>
             <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Tambah User</a>
          </div>
