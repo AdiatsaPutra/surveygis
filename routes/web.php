@@ -38,5 +38,6 @@ Route::get('dropdownlist/kelurahan/{id}', [HomeController::class, 'kelurahan'])-
 
 Route::get('exportpdf/', [HomeController::class, 'printpdf'])->middleware('role:admin');
 Route::get('detailadmin/{id}', [HomeController::class, 'show'])->middleware('role:admin');
+Route::delete('/deleteadmin/{id}', [HomeController::class, 'destroyadmin'])->middleware('role:admin');
 
 \PWA::routes();

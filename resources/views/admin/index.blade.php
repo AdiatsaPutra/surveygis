@@ -159,7 +159,7 @@
                   </form>
                </div>
                <div class="col-3">
-                  <form method="post" action="/delete/{{ $data->id }}">
+                  <form method="post" action="/deleteadmin/{{ $data->id }}">
                      @method('delete')
                      @csrf
                      <button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus data ini ?')"
