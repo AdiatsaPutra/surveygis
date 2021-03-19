@@ -145,10 +145,22 @@ class HomeController extends Controller
         return view('survey.detail', compact('survey'));
     }
 
+    public function showadmin($id)
+    {
+        $survey = Survey::findOrFail($id);
+        return view('admin.detailadmin', compact('survey'));
+    }
+
     public function print($id)
     {
         $survey = Survey::findOrFail($id);
         return view('survey.cetak', compact('survey'));
+    }
+
+    public function printadmin($id)
+    {
+        $survey = Survey::findOrFail($id);
+        return view('admin.Cetakadmin', compact('survey'));
     }
 
     public function printpdf()
