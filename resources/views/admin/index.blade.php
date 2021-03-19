@@ -145,7 +145,7 @@
          <td class="noprint">
             <div class="row">
                <div class="col-3">
-                  <form action="/detail/{{ $data->id }}">
+                  <form action="/detailadmin/{{ $data->id }}">
                      <button class="btn btn-primary">
                         Detail
                      </button>

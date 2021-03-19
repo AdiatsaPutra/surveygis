@@ -37,5 +37,6 @@ Route::get('download-data/', [HomeController::class, 'printpdf'])->middleware('r
 Route::get('dropdownlist/kelurahan/{id}', [HomeController::class, 'kelurahan'])->middleware('role:user');
 
 Route::get('exportpdf/', [HomeController::class, 'printpdf'])->middleware('role:admin');
+Route::get('detailadmin/{id}', [HomeController::class, 'show'])->middleware('role:admin');
 
 \PWA::routes();
