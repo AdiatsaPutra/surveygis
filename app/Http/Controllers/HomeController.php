@@ -223,4 +223,9 @@ class HomeController extends Controller
         // }
         return redirect('/data-survey');
     }
+
+    public function render()
+    {
+        return view('survey.maps');
+    }
 }

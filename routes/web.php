@@ -40,4 +40,6 @@ Route::get('exportpdf/', [HomeController::class, 'printpdf'])->middleware('role:
 Route::get('detailadmin/{id}', [HomeController::class, 'show'])->middleware('role:admin');
 Route::delete('/deleteadmin/{id}', [HomeController::class, 'destroyadmin'])->middleware('role:admin');
 
+Route::get('/maps', [HomeController::class, 'render'])->middleware('role:user');
+
 \PWA::routes();
