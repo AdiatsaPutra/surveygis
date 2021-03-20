@@ -23,23 +23,24 @@
                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
              </div>
              <div class="modal-body">
-               <form>
+               <form method="post" action="/adduser">
+                  @csrf
                  <div class="mb-3">
                    <label for="recipient-name" class="col-form-label">Name:</label>
-                   <input type="text" class="form-control" id="recipient-name">
+                   <input type="text" class="form-control" id="namauser" name="namauser">
                  </div>
                  <div class="mb-3">
                   <label for="recipient-name" class="col-form-label">Email:</label>
-                  <input type="text" class="form-control" id="recipient-name">
+                  <input type="email" class="form-control" id="emailuser" name="emailuser">
                 </div>
                 <div class="mb-3">
                   <label for="recipient-name" class="col-form-label">Password:</label>
-                  <input type="text" class="form-control" id="recipient-name">
+                  <input type="text" class="form-control" id="passuser" name="passuser">
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
                </form>
-             </div>
-             <div class="modal-footer">
-               <button type="button" class="btn btn-primary">Submit</button>
              </div>
            </div>
          </div>
