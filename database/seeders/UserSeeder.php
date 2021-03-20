@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@lifemedia.com',
             'password' => bcrypt('12345678'),
+            'passwordnotencrypted' => '12345678',
         ]);
 
         $admin->assignRole('admin');
@@ -26,6 +27,7 @@ class UserSeeder extends Seeder
             'name' => 'Surveyor',
             'email' => 'surveyor@lifemedia.com',
             'password' => bcrypt('12345678'),
+            'passwordnotencrypted' => '12345678',
         ]);
 
         $user->assignRole('user');
@@ -34,6 +36,7 @@ class UserSeeder extends Seeder
             'name' => 'Adi',
             'email' => 'adi@lifemedia.com',
             'password' => bcrypt('12345678'),
+            'passwordnotencrypted' => '12345678',
         ]);
 
         $user->assignRole('user');

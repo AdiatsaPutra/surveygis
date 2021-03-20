@@ -8,7 +8,8 @@
          <div class="col-md-11">
             <a class="btn btn-primary" href="{{ URL::to('/exportpdf') }}">Export to PDF</a>
             <a class="btn btn-secondary" type="submit" onclick="window.print()">Cetak</a>
-            <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Tambah User</a>
+            <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Tambah
+               User</a>
             <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ListModal" type="submit">List User</a>
          </div>
          <div class="col-md-1">
@@ -17,27 +18,27 @@
 
          <div class="modal fade" id="ListModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Daftar List User</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                   
-                 
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Daftar List User</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+
+
                      <div class="row">
                         <table class="table table-striped">
                            <thead>
-                             <tr>
-                               
-                               <th scope="col">Name</th>
-                               <th scope="col">Email</th>
-                               <th scope="col">Password</th>
-                             </tr>
+                              <tr>
+
+                                 <th scope="col">Name</th>
+                                 <th scope="col">Email</th>
+                                 <th scope="col">Password</th>
+                              </tr>
                            </thead>
                            <tbody>
                               @foreach ($users as $user)
-                             <tr>
+                              <tr>
                                  <td>
                                     {{$user->name}}
                                  </td>
@@ -45,50 +46,54 @@
                                     {{$user->email}}
                                  </td>
                                  <td>
-                                    {{$user->password}}
+                                    {{$user->passwordnotencrypted}}
                                  </td>
-                             </tr>
-                             @endforeach
+                              </tr>
+                              @endforeach
                            </tbody>
-                         </table>
+                        </table>
                      </div>
-                  
-                </div>
-              </div>
+
+                  </div>
+               </div>
             </div>
-          </div>
+         </div>
 
       </div>
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">
-           <div class="modal-content">
-             <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-             </div>
-             <div class="modal-body">
-               <form method="post" action="/adduser">
-                  @csrf
-                 <div class="mb-3">
-                   <label for="recipient-name" class="col-form-label">Name:</label>
-                   <input type="text" class="form-control" id="namauser" name="namauser" required>
-                 </div>
-                 <div class="mb-3">
-                  <label for="recipient-name" class="col-form-label">Email:</label>
-                  <input type="email" class="form-control" id="emailuser" name="emailuser" required>
-                </div>
-                <div class="mb-3">
-                  <label for="recipient-name" class="col-form-label">Password:</label>
-                  <input type="text" class="form-control" id="passuser" name="passuser" required>
-                </div>
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-               </form>
-             </div>
-           </div>
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <form method="post" action="/adduser">
+                     @csrf
+                     <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="namauser" name="namauser" required>
+                     </div>
+                     <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Email:</label>
+                        <input type="email" class="form-control" id="emailuser" name="emailuser" required>
+                     </div>
+                     <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Password:</label>
+                        <input type="text" class="form-control" id="passuser" name="passuser" required>
+                     </div>
+                     <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Confirm Password:</label>
+                        <input type="text" class="form-control" id="passuser" name="seen" required>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                     </div>
+                  </form>
+               </div>
+            </div>
          </div>
-       </div>
+      </div>
       <p>Klik Untuk Sembunyikan kolom</p>
       <div class="row mt-1 mb-1">
          <div class="col">
@@ -218,7 +223,7 @@
 
 @push('scripts')
 <script>
-    var msg = '{{Session::get('alert')}}';
+   var msg = '{{Session::get('alert')}}';
     var exist = '{{Session::has('alert')}}';
     if(exist){
       alert(msg);
