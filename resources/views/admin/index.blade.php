@@ -153,13 +153,6 @@
                   </form>
                </div>
                <div class="col-3">
-                  <form action="/edit-data/{{ $data->id }}">
-                     <button type="submit" class="btn btn-warning">
-                        Edit
-                     </button>
-                  </form>
-               </div>
-               <div class="col-3">
                   <form method="post" action="/deleteadmin/{{ $data->id }}">
                      @method('delete')
                      @csrf
