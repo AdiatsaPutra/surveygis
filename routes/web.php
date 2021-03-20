@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/admin-page', [AdminControler::class, 'index'])->middleware('role:admin')->name('admin.page');
 Route::get('/home', [HomeController::class, 'index'])->middleware('role:user')->name('home');

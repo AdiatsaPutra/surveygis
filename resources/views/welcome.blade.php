@@ -29,8 +29,6 @@
         <p data-aos="fade-up" class="lead">Segera buat akun anda dan daftarkan <br> ke aplikasi
           untuk
           menggunakan serta menikmati fitur yang tersedia</p>
-        <a data-aos="fade-up" type="button" class="btn btn-primary" href="{{ route('register') }}">DAFTARKAN
-          SEKARANG</a><br><br>
       </div>
     </div>
 
