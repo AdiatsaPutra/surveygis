@@ -139,6 +139,11 @@
 
 @push('scripts')
 <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
     function hide_show_table(col_name) {
         var checkbox_val = document.getElementById(col_name).value;
         if (checkbox_val == "hide") {

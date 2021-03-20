@@ -138,6 +138,8 @@
 
 @push('scripts')
 <script>
+
+    
     function myNewFunction(sel) {
     var datakcmtn = sel.options[sel.selectedIndex].text;
     document.getElementById("kcmtn").value = datakcmtn;

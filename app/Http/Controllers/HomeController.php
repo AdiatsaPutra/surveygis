@@ -117,7 +117,7 @@ class HomeController extends Controller
                 $foto->save();
             }
         }
-        return redirect('data-survey');
+        return redirect('data-survey')->with('alert','Data Sukses Ditambahkan!');
     }
 
     public function destroy($id)
@@ -238,7 +238,7 @@ class HomeController extends Controller
             'password'=> bcrypt($request->passuser),
         ]);
         $user->assignRole('user');
-        return redirect()->back(); 
+        return redirect()->back()->with('alert','User Baru Sukses Ditambahkan!'); 
     }
     
 }
