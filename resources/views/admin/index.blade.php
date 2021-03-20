@@ -27,15 +27,15 @@
                   @csrf
                  <div class="mb-3">
                    <label for="recipient-name" class="col-form-label">Name:</label>
-                   <input type="text" class="form-control" id="namauser" name="namauser">
+                   <input type="text" class="form-control" id="namauser" name="namauser" required>
                  </div>
                  <div class="mb-3">
                   <label for="recipient-name" class="col-form-label">Email:</label>
-                  <input type="email" class="form-control" id="emailuser" name="emailuser">
+                  <input type="email" class="form-control" id="emailuser" name="emailuser" required>
                 </div>
                 <div class="mb-3">
                   <label for="recipient-name" class="col-form-label">Password:</label>
-                  <input type="text" class="form-control" id="passuser" name="passuser">
+                  <input type="text" class="form-control" id="passuser" name="passuser" required>
                 </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
