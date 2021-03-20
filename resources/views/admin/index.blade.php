@@ -9,11 +9,55 @@
             <a class="btn btn-primary" href="{{ URL::to('/exportpdf') }}">Export to PDF</a>
             <a class="btn btn-secondary" type="submit" onclick="window.print()">Cetak</a>
             <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Tambah User</a>
+            <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ListModal" type="submit">List User</a>
          </div>
          <div class="col-md-1">
             <a class="btn btn-primary" href="{{ URL::to('/pwa') }} " type="submit">Setting to PWA</a>
          </div>
-      
+
+         <div class="modal fade" id="ListModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Daftar List User</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   
+                 
+                     <div class="row">
+                        <table class="table table-striped">
+                           <thead>
+                             <tr>
+                               
+                               <th scope="col">Name</th>
+                               <th scope="col">Email</th>
+                               <th scope="col">Password</th>
+                             </tr>
+                           </thead>
+                           <tbody>
+                              @foreach ($users as $user)
+                             <tr>
+                                 <td>
+                                    {{$user->name}}
+                                 </td>
+                                 <td>
+                                    {{$user->email}}
+                                 </td>
+                                 <td>
+                                    {{$user->password}}
+                                 </td>
+                             </tr>
+                             @endforeach
+                           </tbody>
+                         </table>
+                     </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
       </div>
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">

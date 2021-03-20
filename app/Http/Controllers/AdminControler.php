@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Survey;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AdminControler extends Controller
 {
@@ -14,13 +15,15 @@ class AdminControler extends Controller
      */
     public function index(Request $request)
     {
+        
+        $users = User::all();
         $survey = Survey::when($request->keyword, function ($query) use ($request) {
             $query->where('namalokasi', 'like', "%{$request->keyword}%")
                 ->orWhere('kategori', 'like', "%{$request->keyword}%")
                 ->orWhere('kelurahan', 'like', "%{$request->keyword}%")
                 ->orWhere('rw', 'like', "%{$request->keyword}%");
         })->paginate(5);
-        return view('admin.index', compact('survey'));
+        return view('admin.index', compact('survey','users'));
     }
 
     /**

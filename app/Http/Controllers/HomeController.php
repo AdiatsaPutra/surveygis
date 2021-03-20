@@ -57,6 +57,7 @@ class HomeController extends Controller
      */
     public function data(Request $request)
     {
+        
         $survey = Survey::when($request->keyword, function ($query) use ($request) {
             $query->where('namalokasi', 'like', "%{$request->keyword}%")
                 ->orWhere('kategori', 'like', "%{$request->keyword}%")
@@ -64,6 +65,7 @@ class HomeController extends Controller
                 ->orWhere('rw', 'like', "%{$request->keyword}%");
         })->where('namasurveyor', 'like', auth()->user()->name)->paginate(5);
         return view('survey.data-survey', compact('survey'));
+
     }
 
     public function store(Request $request)
@@ -235,7 +237,7 @@ class HomeController extends Controller
         $user = User::create([
             'name'=>$request->namauser,
             'email'=>$request->emailuser,
-            'password'=> bcrypt($request->passuser),
+            'password'=>bcrypt($request->passuser),
         ]);
         $user->assignRole('user');
         return redirect()->back()->with('alert','User Baru Sukses Ditambahkan!'); 

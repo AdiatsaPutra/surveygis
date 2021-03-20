@@ -23,8 +23,8 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false]);
 
-Route::get('/admin-page', [AdminControler::class, 'index'])->middleware('role:admin')->name('admin.page');
-Route::get('/home', [HomeController::class, 'index'])->middleware('role:user')->name('home');
+Route::get('/home', [AdminControler::class, 'index'])->middleware('role:admin')->name('admin.page');
+Route::get('/admin-page', [HomeController::class, 'index'])->middleware('role:user')->name('home');
 Route::get('/data-survey', [HomeController::class, 'data'])->middleware('role:user');
 Route::post('/add-data', [HomeController::class, 'store'])->middleware('role:user');
 Route::delete('/delete/{id}', [HomeController::class, 'destroy'])->middleware('role:user');
