@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Foto;
+use App\Models\User;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
 use App\Models\Survey;
@@ -228,4 +229,16 @@ class HomeController extends Controller
     {
         return view('survey.maps');
     }
+
+    public function addUser(Request $request)
+    {
+        $user = User::create([
+            'name'=>$request->namauser,
+            'email'=>$request->emailuser,
+            'password'=> bcrypt($request->passuser),
+        ]);
+        $user->assignRole('user');
+        return redirect()->back(); 
+    }
+    
 }
